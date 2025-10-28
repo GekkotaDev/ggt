@@ -1,5 +1,5 @@
 ---
-date: 2025-10-08
+date: 2025-10-28
 authors: [ghost]
 categories:
   - General
