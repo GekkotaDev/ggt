@@ -1,0 +1,91 @@
+// Godot addons configuration file for use with the GodotEnv tool.
+// See https://github.com/chickensoft-games/GodotEnv for more info.
+// -------------------------------------------------------------------- //
+// Note: this is a JSONC file, so you can use comments!
+// If using Rider, see https://youtrack.jetbrains.com/issue/RIDER-41716
+// for any issues with JSONC.
+// -------------------------------------------------------------------- //
+
+{
+  "$schema": "https://chickensoft.games/schemas/addons.schema.json",
+  // "path": "addons", // default
+  "cache": ".addons/godotenv", // default
+  "addons": {
+    //* Zip releases
+    "gdUnit4": {
+      "url": "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip",
+      "source": "zip",
+      "subfolder": "gdUnit4-6.0.0/addons/gdUnit4"
+    },
+    "ggs": {
+      "url": "https://github.com/c16s8/godot-game-settings/archive/refs/tags/3.3.0.zip",
+      "source": "zip",
+      "subfolder": "godot-game-settings-3.3.0/addons/ggs"
+    },
+    "sound_manager": {
+      "url": "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip",
+      "source": "zip",
+      "subfolder": "godot_sound_manager-2.6.2/addons/sound_manager"
+    },
+    "input_helper": {
+      "url": "https://github.com/nathanhoad/godot_input_helper/archive/refs/tags/v4.7.0.zip",
+      "source": "zip",
+      "subfolder": "godot_input_helper-4.7.0/addons/input_helper"
+    },
+    "limboai": {
+      "url": "https://github.com/limbonaut/limboai/releases/download/v1.5.0/limboai+v1.5.0.gdextension-4.4.zip",
+      "source": "zip",
+      "subfolder": "addons/limboai"
+    },
+    "milestone": {
+      "url": "https://github.com/jelolul/milestone/archive/refs/tags/v1.1.1.beta.zip",
+      "source": "zip",
+      "subfolder": "milestone-1.1.1.beta/addons/milestone"
+    },
+    "netfox": {
+      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+      "source": "zip",
+      "subfolder": "netfox.extras.v1.25.3/addons/netfox"
+    },
+    "netfox.extras": {
+      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+      "source": "zip",
+      "subfolder": "netfox.extras.v1.25.3/addons/netfox.extras"
+    },
+    "netfox.internals": {
+      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+      "source": "zip",
+      "subfolder": "netfox.extras.v1.25.3/addons/netfox.internals"
+    },
+    "netfox.noray": {
+      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.noray.v1.25.3.zip",
+      "source": "zip",
+      "subfolder": "netfox.noray.v1.25.3/addons/netfox.noray"
+    },
+    "orchestrator": {
+      "url": "https://github.com/CraterCrash/godot-orchestrator/releases/download/v2.1.3.stable/godot-orchestrator-v2.1.3-stable-plugin.zip",
+      "source": "zip",
+      "subfolder": "addons/orchestrator"
+    },
+    "quest_system": {
+      "url": "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.1.4_4.zip",
+      "source": "zip",
+      "subfolder": "quest-system-2.0.1.4_4/addons/quest_system"
+    },
+    "scene_manager": {
+      "url": "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.1.1.zip",
+      "source": "zip",
+      "subfolder": "Scene-Manager-1.1.1/addons/scene_manager"
+    },
+    "shaker": {
+      "url": "https://github.com/Eneskp3441/Shaker/archive/refs/tags/v1.0.7.zip",
+      "source": "zip",
+      "subfolder": "Shaker-1.0.7/addons/shaker"
+    },
+    "signal_lens": {
+      "url": "https://github.com/yannlemos/Signal-Lens/releases/download/v1.4.1/signal_lens.zip",
+      "source": "zip",
+      "subfolder": "signal_lens"
+    }
+  }
+}

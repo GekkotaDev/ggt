@@ -1,0 +1,66 @@
+{
+	"folders": [
+		{
+            "name": "Game",
+			"path": ".."
+		},
+        {
+            "name": "Documentation",
+            "path": "../docs"
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "geequlim.godot-tools",
+
+            //* C# Support
+            "ms-dotnettools.csharp",
+            "ms-dotnettools.vscode-dotnet-runtime",
+
+            //* Python support
+            "charliermarsh.ruff",
+
+            //* Nice additions.
+            "aaron-bond.better-comments",
+            "adpyke.codesnap",
+            "albert.TabOut",
+            "alefragnani.Bookmarks",
+            "antfu.smart-clicks",
+            "bierner.github-markdown-preview",
+            "christian-kohler.path-intellisense",
+            "eamodio.gitlens",
+            "GitHub.vscode-pull-request-github",
+            "Gruntfuggly.todo-tree",
+            "usernamehw.errorlens",
+        ],
+    },
+    "settings": {
+        //? Per language settings
+        "[markdown]": {
+            "editor.wordWrap": "bounded",
+            "editor.wordWrapColumn": 90
+        },
+
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "files.exclude": {
+            "**/*.import": true,
+            "**/*.uid": true
+        },
+
+        //! Included here is a hint to what User Setting you will need to set
+        //! in order to get Language Server Protocol features working (in other
+        //! words getting intellisense working)
+        //!
+        //! Setting this in User Settings is more ideal than here in Workspace
+        //! Settings because for any given computer they may have a different
+        //! installation location for Godot
+        //!
+        //! Yeah, sorry for the big red wall of text.
+        // "godotTools.editorPath.godot4": "${env:GODOT}",
+        "yaml.customTags": [
+            "!ENV sequence",
+            "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+        ]
+    }
+}

@@ -1,0 +1,81 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot Game Template"
+run/main_scene="uid://cajf13m5807ih"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bnjj8cr0jn557"
+
+[autoload]
+
+GGS="*res://addons/ggs/core/global_manager/global_manager.tscn"
+InputHelper="*res://addons/input_helper/input_helper.gd"
+AchievementManager="*res://addons/milestone/autoload/achievement_manager.gd"
+WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
+Noray="*res://addons/netfox.noray/noray.gd"
+PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
+NetworkTime="*res://addons/netfox/network-time.gd"
+NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
+NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
+NetworkEvents="*res://addons/netfox/network-events.gd"
+NetworkPerformance="*res://addons/netfox/network-performance.gd"
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+Shaker="*res://addons/shaker/src/Shaker.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+
+[debug]
+
+gdscript/warnings/unassigned_variable=2
+gdscript/warnings/unassigned_variable_op_assign=2
+gdscript/warnings/unused_private_class_variable=0
+gdscript/warnings/shadowed_variable=0
+
+[dotnet]
+
+project/assembly_name="project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/netfox.extras/plugin.cfg", "res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg", "res://addons/netfox/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/quick_layout_changer/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_lookup_folder="tests"
+settings/test/test_discovery=true
+ui/toolbar/run_overall=true
+
+[input_devices]
+
+pen_tablet/driver.windows="auto"
+
+[milestone]
+
+general/achievements_path="res://addons/milestone/demo/achievements/"
+debug/print_errors=true
+debug/print_output=true
+general/save_as_json=true
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+gl_compatibility/driver.macos="opengl3_angle"
+textures/vram_compression/import_etc2_astc=true
