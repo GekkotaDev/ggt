@@ -21,9 +21,9 @@ jobs:
         dotnet-version: | 
           8.0.x
           9.0.x
-    - run: dotnet build
     - name: Install dependencies
       run: |
+        dotnet tool restore
         uv sync
         uv run ./scripts/python/install_addons.py
   
