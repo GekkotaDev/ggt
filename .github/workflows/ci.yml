@@ -1,0 +1,69 @@
+on: [push, pull_request]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version-file: ".python-version"
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        # Install a specific version of uv.
+        version: "0.9.5"
+    - name: Install dependencies
+      run: |
+        uv install
+        uv run ./scripts/python/install_addons.py
+  
+
+  test:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      pull-requests: write
+      statuses: write
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: true
+    - uses: MikeSchulze/gdUnit4-action@v1.0.2
+      with:
+        godot-version: "4.5"
+        godot-net: true
+        paths: |
+          res://tests/
+        timeout: 5
+
+  
+  document:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Configure Git Credentials
+      run: |
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+    - name: Install dependencies
+      run: |
+        cd docs
+        uv install
+    - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+    - uses: actions/cache@v4
+      with:
+        key: mkdocs-material-${{ env.cache_id }}
+        path: ~/.cache 
+        restore-keys: |
+          mkdocs-material-
+    - run: pip install mkdocs-material 
+    - run: mkdocs gh-deploy --force
