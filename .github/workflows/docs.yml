@@ -1,6 +1,12 @@
-on: [push, pull_request]
+on:
+  pull_request: {}
+  push:
+    branches: [main]
 env:
   ci_cd: true
+
+permissions:
+  contents: write
 
 jobs:
   docs:
