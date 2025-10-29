@@ -1,121 +1,225 @@
 # https://github.com/abarichello/godot-ci/blob/master/.github/workflows/godot-ci.yml
+# https://github.com/D4M13N-D3V/godot_template/blob/main/.github/workflows/game_ci.yml
 
 name: Build and Release
 on:
   workflow_dispatch: {}
 
-# NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
-
 env:
   GODOT_VERSION: 4.5.1
-  EXPORT_NAME: ggt
-  PROJECT_PATH: .
 
 jobs:
   build-windows-x86:
     name: Windows x86 Export
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:mono-4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Setup
+        uses: actions/checkout@v3
+
+      - name: Move export templates into position
         run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mkdir -v -p ~/.config/
-          mv /root/.config/godot ~/.config/godot
+          mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: Windows Build
-        run: |
-          mkdir -v -p build/windows
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop x86_64" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - name: Create staging directory
+        run: mkdir -v -p build/windows
+
+      - name: Build for windows
+        run: godot -v --export-release --headless "Windows Desktop x86_64" --path . --output "build/windows/game.x86_64"
+
+      - name: Zip Windows artifacts
+        run: zip -r windows_x86.zip build/windows
+
+      - name: Upload windows artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: windows
-          path: build/windows
+          name: windows_x86
+          path: windows_x86.zip
 
   build-windows-arm:
     name: Windows ARM Export
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:mono-4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mkdir -v -p ~/.config/
-          mv /root/.config/godot ~/.config/godot
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: Windows Build
-        run: |
-          mkdir -v -p build/windows
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop ARM" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows
-          path: build/windows
+        uses: actions/checkout@v3
 
-  export-linux-x86:
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Create staging directory
+        run: mkdir -v -p build/windows
+
+      - name: Build for windows
+        run: godot -v --export-release --headless "Windows Desktop ARM" --path . --output "build/windows/game.x86_64"
+
+      - name: Zip Windows artifacts
+        run: zip -r windows_arm.zip build/windows
+
+      - name: Upload windows artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows_arm
+          path: windows_arm.zip
+
+  build-linux-x86:
     name: Linux x86 Export
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:mono-4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: Linux Build
-        run: |
-          mkdir -v -p build/linux
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux x86_64" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux
-          path: build/linux
+        uses: actions/checkout@v3
 
-  export-linux-pi:
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Create staging directory
+        run: mkdir -v -p build/linux
+
+      - name: Build for Linux
+        run: godot -v --export-release --headless "Linux x86" --path . --output "build/linux/game.x86_64"
+
+      - name: Zip Linux artifacts
+        run: zip -r linux_x86.zip build/linux
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux_x86
+          path: linux_x86.zip
+
+  build-linux-pi:
     name: Linux Pi Export
     runs-on: ubuntu-24.04
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:mono-4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Setup
+        uses: actions/checkout@v3
+
+      - name: Move export templates into position
         run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: Linux Build
-        run: |
-          mkdir -v -p build/linux
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux Pi" "$EXPORT_DIR/linux/$EXPORT_NAME.arm"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - name: Create staging directory
+        run: mkdir -v -p build/linux
+
+      - name: Build for Linux
+        run: godot -v --export-release --headless "Linux Pi" --path . --output "build/linux/game.x86_64"
+
+      - name: Zip Linux artifacts
+        run: zip -r linux_pi.zip build/linux
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: linux
-          path: build/linux
+          name: linux_pi
+          path: linux_pi.zip
+
+  release:
+    needs: [build-windows-x86, build-windows-arm, build-linux-x86, build-linux-pi]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: '5.x'
+
+      - name: Execute GitVersion
+        uses: gittools/actions/gitversion/execute@v0.9.15
+        with:
+          useConfigFile: true
+          configFilePath: GitVersion.yml
+
+      - name: Get branch name
+        id: get_branch
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+
+      - name: Download Linux x86 artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: linux_x86
+
+      - name: Download Linux Pi artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: linux_pi
+
+      - name: Download Windows x86 artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: windows_x86
+
+      - name: Download Windows ARM artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: windows_arm
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{env.GitVersion_MajorMinorPatch}}
+          release_name: ${{env.GitVersion_MajorMinorPatch}}
+          body: |
+            Release notes for ${{env.GitVersion_MajorMinorPatch}}
+          draft: false
+          prerelease: true
+
+      - name: Upload Linux x86 Release Asset
+        id: upload-linux-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: linux_x86.zip
+          asset_name: game_linux_x86.zip
+          asset_content_type: application/zip
+      
+      - name: Upload Linux Pi Release Asset
+        id: upload-linux-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: linux_pi.zip
+          asset_name: game_linux_pi.zip
+          asset_content_type: application/zip
+
+      - name: Upload Windows x86 Release Asset
+        id: upload-windows-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: windows_x86.zip
+          asset_name: game_windows_x86.zip
+          asset_content_type: application/zip
+
+      - name: Upload Windows x86 Release Asset
+        id: upload-windows-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: windows_arm.zip
+          asset_name: game_windows_arm.zip
+          asset_content_type: application/zip
