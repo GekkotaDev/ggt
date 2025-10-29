@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
 env:
-  ci_cd: true
+  CI_CD: true
 
 permissions:
   contents: write

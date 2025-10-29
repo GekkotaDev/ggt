@@ -1,6 +1,6 @@
 on: [push, pull_request]
 env:
-  ci_cd: true
+  CI_CD: true
 
 jobs:
   test:
