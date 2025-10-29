@@ -147,17 +147,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.15
-        with:
-          versionSpec: '5.x'
-
-      - name: Execute GitVersion
-        uses: gittools/actions/gitversion/execute@v0.9.15
-        with:
-          useConfigFile: true
-          configFilePath: GitVersion.yml
-
       - name: Get branch name
         id: get_branch
         run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
@@ -188,12 +177,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{env.GitVersion_MajorMinorPatch}}
-          release_name: ${{env.GitVersion_MajorMinorPatch}}
+          tag_name: ${{ steps.date.outputs.date }}.${{ github.run_id }}
+          release_name: Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           body: |
-            Release notes for ${{env.GitVersion_MajorMinorPatch}}
+            Release notes for Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           draft: false
-          prerelease: true
 
       - name: Upload Linux x86 Release Asset
         id: upload-linux-x86-release-asset
