@@ -1,4 +1,6 @@
-site_name: Sierra Verde Documentation
+site_description: Lorem ipsum dolor sit amet
+site_name: My Game's Documentation
+site_url : https://gekkotadev.github.io/ggt
 
 extra_css:
   - stylesheets/index.css
