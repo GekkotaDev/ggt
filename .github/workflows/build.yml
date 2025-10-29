@@ -2,9 +2,10 @@
 # https://github.com/D4M13N-D3V/godot_template/blob/main/.github/workflows/game_ci.yml
 
 #!!! README !!!
-#! 1. On line 188 please update the `uses:` key to use your own local copy of
-#!    `test.yml`. Should the workflow ever be updated, it should at least not
-#!    affect your own copy of the workflow.
+#! 1. On the `pre-test` workflow, please replace the `uses:` key to reference
+#!    your own copy of the workflow file. Should the `test.yml` workflow ever
+#!    be updated your own local copy should not break (and as far as I'm aware
+#!    of this can not be parameterized)
 
 #! Questions and Answers
 #
@@ -38,6 +39,12 @@ permissions:
   contents: write
 
 jobs:
+  pre-test:
+    uses: gekkotadev/ggt/.github/workflows/test.yml@main
+    with:
+      godot_version: ${{ inputs.godot_version }}
+      uv_version: ${{ inputs.uv_version }}
+
   build-windows-x86:
     name: Windows x86 Export
     runs-on: ubuntu-24.04
@@ -183,9 +190,6 @@ jobs:
   release:
     needs: [build-windows-x86, build-windows-arm, build-linux-x86, build-linux-pi]
     runs-on: ubuntu-latest
-    # Despite what VSCode YAML will say, this is a documented feature
-    # https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows
-    uses: gekkotadev/ggt/.github/workflows/test.yml@main
     permissions:
       contents: write
     steps:
