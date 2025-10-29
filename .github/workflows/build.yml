@@ -1,6 +1,11 @@
 # https://github.com/abarichello/godot-ci/blob/master/.github/workflows/godot-ci.yml
 # https://github.com/D4M13N-D3V/godot_template/blob/main/.github/workflows/game_ci.yml
 
+#!!! README !!!
+#! 1. On line 159 please update the `uses:` key to use your own local copy of
+#!    `test.yml`. Should the workflow ever be updated, it should at least not
+#!    affect your own copy of the workflow.
+
 #! Questions and Answers
 #
 #? Q: I'm using Godot without C#, my builds are now failing with the following
@@ -17,10 +22,9 @@ name: Build and Release
 on:
   workflow_dispatch:
     inputs:
-      test_workflow:
+      game_title:
         type: string
-        description: Test suite workflow.
-        default: gekkotadev/ggt/.github/workflows/test.yml@main
+        description: Game title
       godot_version:
         type: string
         description: Godot Engine version.
@@ -50,13 +54,13 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p build/windows
 
-      - name: Build for windows
-        run: godot -v --export-release --headless "Windows Desktop x86_64" --path . --output "build/windows/game.x86_64"
+      - name: Build for Windows x86
+        run: godot -v --export-release --headless "Windows Desktop x86_64" --path . --output "build/windows/${{ inputs.game_title }}.x86_64"
 
-      - name: Zip Windows artifacts
+      - name: Zip Windows x86 artifacts
         run: zip -r windows_x86.zip build/windows
 
-      - name: Upload windows artifacts
+      - name: Upload Windows x86 artifacts
         uses: actions/upload-artifact@v4
         with:
           name: windows_x86
@@ -78,13 +82,13 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p build/windows
 
-      - name: Build for windows
-        run: godot -v --export-release --headless "Windows Desktop ARM" --path . --output "build/windows/game.x86_64"
+      - name: Build for Windows ARM
+        run: godot -v --export-release --headless "Windows Desktop ARM" --path . --output "build/windows/${{ inputs.game_title }}.arm"
 
-      - name: Zip Windows artifacts
+      - name: Zip Windows ARM artifacts
         run: zip -r windows_arm.zip build/windows
 
-      - name: Upload windows artifacts
+      - name: Upload Windows ARM artifacts
         uses: actions/upload-artifact@v4
         with:
           name: windows_arm
@@ -106,13 +110,13 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p build/linux
 
-      - name: Build for Linux
-        run: godot -v --export-release --headless "Linux x86_64" --path . --output "build/linux/game.x86_64"
+      - name: Build for Linux x86
+        run: godot -v --export-release --headless "Linux x86_64" --path . --output "build/linux/${{ inputs.game_title }}.x86_64"
 
-      - name: Zip Linux artifacts
+      - name: Zip Linux x86 artifacts
         run: zip -r linux_x86.zip build/linux
 
-      - name: Upload Linux artifacts
+      - name: Upload Linux x86 artifacts
         uses: actions/upload-artifact@v4
         with:
           name: linux_x86
@@ -134,17 +138,47 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p build/linux
 
-      - name: Build for Linux
-        run: godot -v --export-release --headless "Linux Pi" --path . --output "build/linux/game.x86_64"
+      - name: Build for Linux Pi
+        run: godot -v --export-release --headless "Linux Pi" --path . --output "build/linux/${{ inputs.game_title }}.arm"
 
-      - name: Zip Linux artifacts
+      - name: Zip Linux Pi artifacts
         run: zip -r linux_pi.zip build/linux
 
-      - name: Upload Linux artifacts
+      - name: Upload Linux Pi artifacts
         uses: actions/upload-artifact@v4
         with:
           name: linux_pi
           path: linux_pi.zip
+
+  build-android:
+    name: Android Export
+    runs-on: ubuntu-24.04
+    container:
+      image: barichello/godot-ci:mono-4.5.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
+      - name: Create staging directory
+        run: mkdir -v -p build/linux
+
+      - name: Build for Android
+        run: godot -v --export-release --headless "Android" --path . --output "build/android/${{ inputs.game_title }}.arm"
+
+      - name: Zip Android artifacts
+        run: zip -r android.zip build/android
+
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: android.zip
 
   release:
     needs: [build-windows-x86, build-windows-arm, build-linux-x86, build-linux-pi]
@@ -152,8 +186,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: E
-        uses: ${{ inputs.test_workflow }}
+      - name: Run Tests
+        uses: gekkotadev/ggt/.github/workflows/test.yml@main
         with:
           godot_version: ${{ inputs.godot_version }}
           uv_version: ${{ inputs.uv_version }}
@@ -209,7 +243,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: linux_x86.zip
-          asset_name: game_linux_x86.zip
+          asset_name: ${{ inputs.game_title }}_linux_x86.zip
           asset_content_type: application/zip
       
       - name: Upload Linux Pi Release Asset
@@ -220,7 +254,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: linux_pi.zip
-          asset_name: game_linux_pi.zip
+          asset_name: ${{ inputs.game_title }}_linux_pi.zip
           asset_content_type: application/zip
 
       - name: Upload Windows x86 Release Asset
@@ -231,7 +265,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: windows_x86.zip
-          asset_name: game_windows_x86.zip
+          asset_name: ${{ inputs.game_title }}_windows_x86.zip
           asset_content_type: application/zip
 
       - name: Upload Windows ARM Release Asset
@@ -242,5 +276,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: windows_arm.zip
-          asset_name: game_windows_arm.zip
+          asset_name: ${{ inputs.game_title }}_windows_arm.zip
           asset_content_type: application/zip
