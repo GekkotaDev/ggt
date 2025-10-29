@@ -18,6 +18,11 @@
 #*    `mv` commands you would instead need to remove the `.mono` suffixes.
 #*
 #*    [1]: https://github.com/abarichello/godot-ci/issues/87
+#
+#? Q: Why are my tests running an older version of Godot?
+#* A: Unfortunately you must manually edit `test.yml`. It is unknown to why it
+#*    fails when parameterized or when even using the OR operator, but I'd
+#*    rather not spend too much time on so far a small detail like that.
 
 name: Build and Release
 on:

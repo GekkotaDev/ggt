@@ -15,7 +15,8 @@ on:
 env:
   CI_CD: true
 
-  DEFAULT_GODOT_VERSION: 4.5.1
+  GODOT_VERSION: 4.5.1
+  UV_VERSION: 0.9.5
 
 
 jobs:
@@ -32,7 +33,7 @@ jobs:
       uses: astral-sh/setup-uv@v6
       with:
         # Install a specific version of uv.
-        version: ${{ inputs.uv_version || "0.9.5" }} 
+        version: $UV_VERSION
         enable-cache: true
     - name: Setup dotNET
       uses: actions/setup-dotnet@v5
@@ -48,7 +49,7 @@ jobs:
         uv run ./scripts/python/install_addons.py
     - uses: MikeSchulze/gdUnit4-action@v1.2.2
       with:
-        godot-version: ${{ inputs.godot_version || "4.5.1" }} 
+        godot-version: $GODOT_VERSION
         godot-net: true
         paths: |
           res://tests
