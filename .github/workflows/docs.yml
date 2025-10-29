@@ -18,10 +18,6 @@ jobs:
         # Install a specific version of uv.
         version: "0.9.5"
         enable-cache: true
-    - name: Install dependencies
-      run: |
-        uv sync
-        uv run ./scripts/python/install_addons.py
     - name: Configure Git Credentials
       run: |
         git config user.name github-actions[bot]
@@ -36,4 +32,7 @@ jobs:
         path: ~/.cache 
         restore-keys: |
           mkdocs-material-
-    - run: uv run mkdocs gh-deploy --force
+    - name: Deploy
+      run: |
+        uv sync
+        uv run mkdocs gh-deploy --force
