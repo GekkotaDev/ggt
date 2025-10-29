@@ -57,6 +57,7 @@ nunit-*.xml
 #? Python
 .cache
 .venv
+site
 
 #? Godot
 # Godot 4+ specific ignores
