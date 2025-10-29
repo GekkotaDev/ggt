@@ -16,44 +16,8 @@ env:
   CI_CD: true
 
 jobs:
-  test-linux:
+  test:
     runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version-file: ".python-version"
-    - name: Install uv
-      uses: astral-sh/setup-uv@v6
-      with:
-        # Install a specific version of uv.
-        version: ${{ inputs.uv_version }} 
-        enable-cache: true
-    - name: Setup dotNET
-      uses: actions/setup-dotnet@v5
-      with:
-        dotnet-version: | 
-          8.0.x
-          9.0.x
-    - name: Install dependencies
-      run: |
-        dotnet tool restore
-        dotnet godotenv addons install
-        uv sync
-        uv run ./scripts/python/install_addons.py
-    - uses: MikeSchulze/gdUnit4-action@v1.2.2
-      with:
-        godot-version: ${{ inputs.godot_version }} 
-        godot-net: true
-        paths: |
-          res://tests
-        timeout: 5
-        version: installed
-
-  test-windows:
-    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
