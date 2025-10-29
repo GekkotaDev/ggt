@@ -12,20 +12,16 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version-file: ".python-version"
-    - name: Install uv
-      uses: astral-sh/setup-uv@v6
-      with:
-        # Install a specific version of uv.
-        version: "0.9.5"
-        enable-cache: true
+    # - name: Install uv
+    #   uses: astral-sh/setup-uv@v6
+    #   with:
+    #     # Install a specific version of uv.
+    #     version: "0.9.5"
+    #     enable-cache: true
     - name: Configure Git Credentials
       run: |
         git config user.name github-actions[bot]
         git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-    - name: Activate Virtual Environment
-      run: |
-        uv sync
-        . .venv/bin/activate
     - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
     - uses: actions/cache@v4
       with:
@@ -33,7 +29,11 @@ jobs:
         path: ~/.cache 
         restore-keys: |
           mkdocs-material-
-    - name: Deploy
+    - name: Install dependencies
+      working-directory: docs
       run: |
-        cd docs
+        pip install mkdocs-material mkdocs-rss-plugin
+    - name: Deploy
+      working-directory: docs
+      run: |
         mkdocs gh-deploy --force
