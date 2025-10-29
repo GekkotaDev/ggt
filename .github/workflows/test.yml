@@ -3,6 +3,8 @@ on: [push, pull_request]
 env:
   CI_CD: true
 
+  GODOT_VERSION: 4.5.1
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -33,7 +35,7 @@ jobs:
         uv run ./scripts/python/install_addons.py
     - uses: MikeSchulze/gdUnit4-action@v1.2.2
       with:
-        godot-version: "4.5.1"
+        godot-version: "${GODOT_VERSION}"
         godot-net: true
         paths: |
           res://tests
