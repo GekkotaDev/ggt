@@ -47,7 +47,7 @@ jobs:
         uv run ./scripts/python/install_addons.py
     - uses: MikeSchulze/gdUnit4-action@v1.2.2
       with:
-        godot-version: ${{ inputs.godot_version || $DEFAULT_GODOT_VERSION }} 
+        godot-version: ${{ inputs.godot_version || "$DEFAULT_GODOT_VERSION" }} 
         godot-net: true
         paths: |
           res://tests
