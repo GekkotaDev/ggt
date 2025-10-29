@@ -15,10 +15,20 @@
 
 name: Build and Release
 on:
-  workflow_dispatch: {}
-
-env:
-  GODOT_VERSION: 4.5.1
+  workflow_dispatch:
+    inputs:
+      test_workflow:
+        type: string
+        description: Test suite workflow.
+        default: gekkotadev/ggt/.github/workflows/test.yml@main
+      godot_version:
+        type: string
+        description: Godot Engine version.
+        default: "4.5.1"
+      uv_version:
+        type: string
+        description: uv package manager version.
+        default: "0.9.5"
 
 permissions:
   contents: write
@@ -36,7 +46,7 @@ jobs:
       - name: Move export templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
       - name: Create staging directory
         run: mkdir -v -p build/windows
 
@@ -64,7 +74,7 @@ jobs:
       - name: Move export templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
       - name: Create staging directory
         run: mkdir -v -p build/windows
 
@@ -92,7 +102,7 @@ jobs:
       - name: Move export templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
       - name: Create staging directory
         run: mkdir -v -p build/linux
 
@@ -120,7 +130,7 @@ jobs:
       - name: Move export templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
       - name: Create staging directory
         run: mkdir -v -p build/linux
 
@@ -142,6 +152,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: E
+        uses: ${{ inputs.test_workflow }}
+        with:
+          godot_version: ${{ inputs.godot_version }}
+          uv_version: ${{ inputs.uv_version }}
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%d-%m')"
