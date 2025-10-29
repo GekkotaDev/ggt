@@ -162,35 +162,36 @@ jobs:
           name: linux_pi
           path: linux_pi.zip
 
-  build-android:
-    name: Android Export
-    runs-on: ubuntu-24.04
-    container:
-      image: barichello/godot-ci:mono-4.5.1
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+  #! This will have to wait until a proper CI/CD solution is available.
+  # build-android:
+  #   name: Android Export
+  #   runs-on: ubuntu-24.04
+  #   container:
+  #     image: barichello/godot-ci:mono-4.5.1
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Setup Gradle
+  #       uses: gradle/actions/setup-gradle@v5
 
-      - name: Move export templates into position
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
-      - name: Create staging directory
-        run: mkdir -v -p build/android
+  #     - name: Move export templates into position
+  #       run: |
+  #         mkdir -v -p ~/.local/share/godot/export_templates
+  #         mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
+  #     - name: Create staging directory
+  #       run: mkdir -v -p build/android
 
-      - name: Build for Android
-        run: godot -v --export-release --headless "Android" --path . --output "build/android/${{ inputs.game_title }}.arm"
+  #     - name: Build for Android
+  #       run: godot -v --export-release --headless "Android" --path . --output "build/android/${{ inputs.game_title }}.arm"
 
-      - name: Zip Android artifacts
-        run: zip -r android.zip build/android
+  #     - name: Zip Android artifacts
+  #       run: zip -r android.zip build/android
 
-      - name: Upload Android artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: android
-          path: android.zip
+  #     - name: Upload Android artifacts
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: android
+  #         path: android.zip
 
   release:
     needs: [
@@ -199,7 +200,6 @@ jobs:
       build-windows-arm,
       build-linux-x86,
       build-linux-pi,
-      build-android
     ]
     runs-on: ubuntu-latest
     permissions:
