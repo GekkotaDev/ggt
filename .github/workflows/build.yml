@@ -188,7 +188,7 @@ jobs:
           path: android.zip
 
   release:
-    needs: [build-windows-x86, build-windows-arm, build-linux-x86, build-linux-pi]
+    needs: [build-windows-x86, build-windows-arm, build-linux-x86, build-linux-pi, build-android]
     runs-on: ubuntu-latest
     permissions:
       contents: write
