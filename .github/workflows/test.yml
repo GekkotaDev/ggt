@@ -37,3 +37,4 @@ jobs:
         paths: |
           res://tests
         timeout: 5
+        version: installed
