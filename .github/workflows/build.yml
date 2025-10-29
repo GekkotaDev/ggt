@@ -1,23 +1,19 @@
 # https://github.com/abarichello/godot-ci/blob/master/.github/workflows/godot-ci.yml
 
-name: "godot-ci export"
+name: Build and Release
 on:
-  workflow_dispatch:
-    inputs:
-      GODOT_VERSION:
-        type: string
-        description: Godot Engine version.
-        required: true
+  workflow_dispatch: {}
 
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
+  GODOT_VERSION: 4.5.1
   EXPORT_NAME: ggt
   PROJECT_PATH: .
 
 jobs:
   build-windows-x86:
-    name: Windows Export
+    name: Windows x86 Export
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.3
@@ -45,7 +41,7 @@ jobs:
           path: build/windows
 
   build-windows-arm:
-    name: Windows Export
+    name: Windows ARM Export
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.3
@@ -73,7 +69,7 @@ jobs:
           path: build/windows
 
   export-linux-x86:
-    name: Linux Export
+    name: Linux x86 Export
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.3
@@ -99,7 +95,7 @@ jobs:
           path: build/linux
 
   export-linux-pi:
-    name: Linux Export
+    name: Linux Pi Export
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:4.3
