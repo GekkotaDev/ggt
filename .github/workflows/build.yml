@@ -142,6 +142,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -180,7 +183,7 @@ jobs:
           tag_name: ${{ github.run_id }}
           release_name: Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           body: |
-            Release notes for Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
+            Releases for build ${{ steps.date.outputs.date }} (tag `${{ github.run_id }}`)
           draft: false
 
       - name: Upload Linux x86 Release Asset
