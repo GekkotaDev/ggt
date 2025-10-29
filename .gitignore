@@ -55,6 +55,7 @@ TestResult.xml
 nunit-*.xml
 
 #? Python
+.cache
 .venv
 
 #? Godot

@@ -10,4 +10,11 @@ dependencies = []
 members = ["docs"]
 
 [dependency-groups]
-dev = ["copier>=9.10.2", "inquirer>=3.4.1", "rich>=14.1.0", "ruff>=0.13.0"]
+dev = [
+    "copier>=9.10.2",
+    "mkdocs-material>=9.6.22",
+    "mkdocs-rss-plugin>=1.17.4",
+    "inquirer>=3.4.1",
+    "rich>=14.1.0",
+    "ruff>=0.13.0",
+]

@@ -30,7 +30,6 @@ jobs:
         restore-keys: |
           mkdocs-material-
     - name: Deploy
-      working-directory: docs
       run: |
         pip install mkdocs-material mkdocs-rss-plugin
         mkdocs gh-deploy --force
