@@ -31,6 +31,5 @@ jobs:
           mkdocs-material-
     - name: Deploy
       run: |
-        pip install mkdocs-material mkdocs-rss-plugin
-        . .venv/bin/activate
-        mkdocs gh-deploy --force
+        uv sync
+        uv run mkdocs gh-deploy --force
