@@ -15,7 +15,7 @@ class Git:
     vcs_ref: str | None = None
 
 
-CI = os.getenv("ci_cd")
+CI = os.getenv("CI_CD")
 PROJECT_DIR = pathlib.Path(os.path.dirname(__file__)).parent.parent.absolute()
 CACHE = f"{PROJECT_DIR}/.addons/copier"
 ADDONS = f"{PROJECT_DIR}/addons"
