@@ -181,7 +181,7 @@ jobs:
           prerelease: true
 
       - name: Upload Linux x86 Release Asset
-        id: upload-linux-release-asset
+        id: upload-linux-x86-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -192,7 +192,7 @@ jobs:
           asset_content_type: application/zip
       
       - name: Upload Linux Pi Release Asset
-        id: upload-linux-release-asset
+        id: upload-linux-pi-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -203,7 +203,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload Windows x86 Release Asset
-        id: upload-windows-release-asset
+        id: upload-windows-x86-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -213,8 +213,8 @@ jobs:
           asset_name: game_windows_x86.zip
           asset_content_type: application/zip
 
-      - name: Upload Windows x86 Release Asset
-        id: upload-windows-release-asset
+      - name: Upload Windows ARM Release Asset
+        id: upload-windows-arm-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
