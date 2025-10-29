@@ -237,10 +237,10 @@ jobs:
         with:
           name: windows_arm
 
-      - name: Download Android artifacts
-        uses: actions/download-artifact@v5
-        with:
-          name: android
+      # - name: Download Android artifacts
+      #   uses: actions/download-artifact@v5
+      #   with:
+      #     name: android
 
       - name: Create Release
         id: create_release
@@ -298,13 +298,13 @@ jobs:
           asset_name: ${{ inputs.game_title }}_windows_arm.zip
           asset_content_type: application/zip
       
-      - name: Upload Android Release Asset
-        id: upload-android-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: windows_arm.zip
-          asset_name: ${{ inputs.game_title }}_android.zip
-          asset_content_type: application/zip
+      # - name: Upload Android Release Asset
+      #   id: upload-android-release-asset
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: windows_arm.zip
+      #     asset_name: ${{ inputs.game_title }}_android.zip
+      #     asset_content_type: application/zip
