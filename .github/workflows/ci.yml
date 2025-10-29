@@ -46,7 +46,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         lfs: true
-    - uses: MikeSchulze/gdUnit4-action@v1.0.2
+    - uses: MikeSchulze/gdUnit4-action@v1
       with:
         godot-version: "4.5.1"
         godot-net: true
