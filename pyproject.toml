@@ -6,9 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
-[tool.uv.workspace]
-members = ["docs"]
-
 [dependency-groups]
 dev = [
     "copier>=9.10.2",
