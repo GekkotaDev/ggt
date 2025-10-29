@@ -173,7 +173,7 @@ jobs:
           mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono ~/.local/share/godot/export_templates/${{ inputs.godot_version }}.stable.mono
       - name: Create staging directory
-        run: mkdir -v -p build/linux
+        run: mkdir -v -p build/android
 
       - name: Build for Android
         run: godot -v --export-release --headless "Android" --path . --output "build/android/${{ inputs.game_title }}.arm"
@@ -225,6 +225,11 @@ jobs:
         with:
           name: windows_arm
 
+      - name: Download Android artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: android
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -234,7 +239,7 @@ jobs:
           tag_name: ${{ steps.date.outputs.date }}.${{ github.run_id }}
           release_name: Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           body: |
-            Releases for build ${{ steps.date.outputs.date }}.${{ github.run_id }}
+            Releases for build `${{ steps.date.outputs.date }}.${{ github.run_id }}``
           draft: false
 
       - name: Upload Linux x86 Release Asset
@@ -279,4 +284,15 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: windows_arm.zip
           asset_name: ${{ inputs.game_title }}_windows_arm.zip
+          asset_content_type: application/zip
+      
+      - name: Upload Android Release Asset
+        id: upload-android-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: windows_arm.zip
+          asset_name: ${{ inputs.game_title }}_android.zip
           asset_content_type: application/zip
