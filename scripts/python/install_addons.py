@@ -15,6 +15,7 @@ class Git:
     vcs_ref: str | None = None
 
 
+CI = os.getenv("ci_cd")
 PROJECT_DIR = pathlib.Path(os.path.dirname(__file__)).parent.parent.absolute()
 CACHE = f"{PROJECT_DIR}/.addons/copier"
 ADDONS = f"{PROJECT_DIR}/addons"
@@ -36,8 +37,10 @@ if pathlib.Path(ADDONS).exists():
     with os.scandir(ADDONS) as directory:
         (addons_exists := True) if any(directory) else None
 
-if addons_exists and Confirm.ask(
-    "Addons folder already exists. Delete for proper installation?"
+if (
+    not CI
+    and addons_exists
+    and Confirm.ask("Addons folder already exists. Delete for proper installation?")
 ):
     shutil.rmtree(ADDONS)
 

@@ -1,4 +1,6 @@
 on: [push, pull_request]
+env:
+  ci_cd: true
 
 jobs:
   setup:
@@ -24,6 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         dotnet tool restore
+        dotnet godotenv addons install
         uv sync
         uv run ./scripts/python/install_addons.py
   
@@ -48,7 +51,7 @@ jobs:
         godot-version: "4.5.1"
         godot-net: true
         paths: |
-          res://tests/
+          res://tests
         timeout: 5
 
   
@@ -71,5 +74,4 @@ jobs:
         path: ~/.cache 
         restore-keys: |
           mkdocs-material-
-    - run: pip install mkdocs-material 
-    - run: mkdocs gh-deploy --force
+    - run: uv run mkdocs gh-deploy --force
