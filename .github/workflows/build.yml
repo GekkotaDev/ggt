@@ -1,6 +1,18 @@
 # https://github.com/abarichello/godot-ci/blob/master/.github/workflows/godot-ci.yml
 # https://github.com/D4M13N-D3V/godot_template/blob/main/.github/workflows/game_ci.yml
 
+#! Questions and Answers
+#
+#? Q: I'm using Godot without C#, my builds are now failing with the following
+#?    error:
+#? >  mv: cannot stat 'root/.local/share/godot/templates/{version}.stable.mono':
+#? >  No such file or directory
+#* A: This issue here on the `godot-ci`'s GitHub repository[1] details the likely
+#*    solution to your problem albeit instead of adding `.mono` to the respective
+#*    `mv` commands you would instead need to remove the `.mono` suffixes.
+#*
+#*    [1]: https://github.com/abarichello/godot-ci/issues/87
+
 name: Build and Release
 on:
   workflow_dispatch: {}
@@ -85,7 +97,7 @@ jobs:
         run: mkdir -v -p build/linux
 
       - name: Build for Linux
-        run: godot -v --export-release --headless "Linux x86" --path . --output "build/linux/game.x86_64"
+        run: godot -v --export-release --headless "Linux x86_64" --path . --output "build/linux/game.x86_64"
 
       - name: Zip Linux artifacts
         run: zip -r linux_x86.zip build/linux
