@@ -180,10 +180,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_id }}
+          tag_name: ${{ steps.date.outputs.date }}.${{ github.run_id }}
           release_name: Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           body: |
-            Releases for build ${{ steps.date.outputs.date }} (tag `${{ github.run_id }}`)
+            Releases for build ${{ steps.date.outputs.date }}.${{ github.run_id }}
           draft: false
 
       - name: Upload Linux x86 Release Asset
