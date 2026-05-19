@@ -18,7 +18,7 @@ Not optimized for any particular genre or type of game, just a general starter.
 
 - [ ] Godot
 - [ ] [.NET SDK](https://dotnet.microsoft.com/en-us/download)
-- [ ] Python
+- [ ] Python (optional; for MkDocs)
   - [ ] [uv](https://docs.astral.sh/uv/getting-started/installation/#__tabbed_1_2)
 
 ## Usage
@@ -79,14 +79,36 @@ Not optimized for any particular genre or type of game, just a general starter.
 ```sh
 dotnet tool restore
 uv install
-uv run ./scripts/python/install_addons.py
 godot -e .  # -e is shorthand for --editor
 ```
 
 ## Checklist
 
-- [ ] Delete or update the [`LICENSE`](./LICENSE) file
-- [ ] Rename `~/.vscode/My Game.code-workspace` to your game's title (or don't)
+- [ ] Delete or update the [`LICENSE`](./LICENSE) file.
+- [ ] Rename `~/.vscode/My Game.code-workspace` to your game's title (or don't).
 - [ ] Install the recommended VSCode extensions.
 - [ ] Update the game title in `~/docs`
 - [ ] Update this `README.md`
+- [ ] Update project settings.
+- [ ] Review the codebase.
+
+## Oath Against Bad Development Practices
+
+> Don't take this on a personal level; see it as my own opinions, all up to you whether to agree or not :p
+
+I swear to...
+
+- [ ] ... avoid polluting the codebase with "manager" classes https://softwareengineering.stackexchange.com/a/129566
+  - [ ] ... understand that by naming something `XManager` I'm not telling other programmers especially my future self meaningfully what it actually does.
+  - [ ] ... know that I am not clarifying the responsibilities of modules / scripts within my codebase.
+  - [ ] ... acknowledge this offers no structure to the codebase, and that inevitably there will be `Manager` classes making a mess like scattered Lego bricks on the floor.
+  - [ ] ... either [read a book on design patterns](https://refactoring.guru/design-patterns) or [a video equivalent](https://youtu.be/tv-_1er1mWI).
+- [ ] ... avoid misguiding myself into creating complex "false optimizations" by making assumptions without either [measurements from the profiler](https://docs.godotengine.org/en/stable/tutorials/scripting/debug/the_profiler.html) or citing a well researched / highly voted upon answer.
+  - [ ] ... understand ["premature optimization is the root of all evil"](https://youtu.be/tKbV6BpH-C8) and that I'm only making it more difficult for everyone to understand my code.
+  - [ ] ... understand that only after either measuring and/or researching that I will write code that while more difficult to understand is noticeably faster.
+- [ ] ... avoid reinventing the wheel if an addon already exists unless I have reason to reinvent the wheel — that is, for example: available addons do not meet my requirements.
+- [ ] ... in all earnest honesty that I will [**read the friendly manual**](https://en.wikipedia.org/wiki/RTFM), perhaps participate in communities such as forums, and sharpen my [google-fu](https://en.wiktionary.org/wiki/Google-fu) skills.
+  - [ ] ... acknowledge people do not like [help vampires](https://meta.stackoverflow.com/a/258208)
+  - [ ] ... [don't ask if I have permission to ask](https://dontasktoask.com), I'll just ask my question right away!
+  - [ ] ... get straight to the point and ask my question, and that I will not [waste both my own time and someone else's time by first starting with "are u available?"](https://nohello.net/en/) despite online messaging being asynchronous.
+  - [ ] ... get the point that my peers are neither ChatGPT nor some sort of psychic mind-reader; they're at the end of the day still humans with limited bandwidth.

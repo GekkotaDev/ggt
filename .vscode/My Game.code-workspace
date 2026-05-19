@@ -36,6 +36,15 @@
     },
     "settings": {
         //? Per language settings
+        "[gdscript]": {
+            "editor.tabSize": 4,
+            "editor.insertSpaces": false,
+            "editor.rulers": [
+                {
+                    "column": 100
+                }
+            ]
+        },
         "[markdown]": {
             "editor.wordWrap": "bounded",
             "editor.wordWrapColumn": 90
@@ -43,6 +52,15 @@
 
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.expand": false,
+        "explorer.fileNesting.patterns": {
+            //   "addons.jsonc": "*.csproj, *.sln",
+              "project.godot": "export_presets.cfg, icon.svg",
+              "pyproject.toml": ".python-version, mkdocs.yml, uv.lock, *.py",
+              "*.tres": "${capture}.gd, ${capture}.cs",
+              "*.tscn": "${capture}.gd, ${capture}.cs",
+        },
         "files.exclude": {
             "**/*.import": true,
             "**/*.uid": true
@@ -58,9 +76,18 @@
         //!
         //! Yeah, sorry for the big red wall of text.
         // "godotTools.editorPath.godot4": "${env:GODOT}",
-        "yaml.customTags": [
-            "!ENV sequence",
-            "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
-        ]
+        
+        "yaml.schemas": {
+             "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+        },
+        "yaml.customTags": [ 
+                "!ENV scalar",
+                "!ENV sequence",
+                "!relative scalar",
+                "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+                "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+                "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+                "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
+            ]
     }
 }

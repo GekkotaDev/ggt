@@ -79,11 +79,10 @@ data_*/
 mono_crash.*.json
 
 # Addons
-!addons/.editorconfig
-!addons/editor_layout_hotkeys
 .addons
-AmbientCG
 addons/*
+!addons/.editorconfig
+!addons/project.*
 
 # GDUnit4
 reports

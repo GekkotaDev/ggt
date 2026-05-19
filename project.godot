@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Godot Game Template"
 run/main_scene="uid://cajf13m5807ih"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -51,7 +55,7 @@ project/assembly_name="project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/netfox.extras/plugin.cfg", "res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg", "res://addons/netfox/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/quick_layout_changer/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [gdunit4]
 

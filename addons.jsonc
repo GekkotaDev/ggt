@@ -8,10 +8,40 @@
 
 {
   "$schema": "https://chickensoft.games/schemas/addons.schema.json",
-  // "path": "addons", // default
-  "cache": ".addons/godotenv", // default
+//   "path": "addons",
+  "cache": ".addons/godotenv/cache",
   "addons": {
     //* Zip releases
+    "aspect_ratio_resize_container": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/aspect_ratio_resize_container-3_3_0.zip",
+      "source": "zip",
+      "subfolder": "addons/aspect_ratio_resize_container"
+    },
+    // "csg_toolkit": {
+    //   "url": "https://github.com/IIFabixn/CSG_Toolkit/archive/refs/tags/1.6.1.zip",
+    //   "source": "zip",
+    //   "subfolder": "CSG_Toolkit-1.6.1/addons/csg_toolkit"
+    // },
+    "custom_theme_overrides": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/custom_theme_overrides-1_2_0.zip",
+      "source": "zip",
+      "subfolder": "addons/custom_theme_overrides"
+    },
+    // "debug_draw_3d": {
+    //   "url": "https://github.com/DmitriySalnikov/godot_debug_draw_3d/releases/download/1.6.0/debug-draw-3d_1.6.0.zip",
+    //   "source": "zip",
+    //   "subfolder": "debug_draw_3d-1.6.0/addons/debug_draw_3d"
+    // },
+    "debug_menu": {
+      "url": "https://github.com/godot-extended-libraries/godot-debug-menu/archive/refs/tags/v1.2.0.zip",
+      "source": "zip",
+      "subfolder": "godot-debug-menu-1.2.0/addons/debug_menu"
+    },
+    "eye_dropper": {
+      "url": "https://github.com/nadjiel/eye-dropper/releases/download/v1.0.1/eye_dropper_v1.0.1.zip",
+      "source": "zip",
+      "subfolder": "eye-dropper-8c2b6c83e13a4ab2b4664dcdb40d8f1a99279ddb/addons/eye_dropper"
+    },
     "gdUnit4": {
       "url": "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip",
       "source": "zip",
@@ -22,15 +52,25 @@
       "source": "zip",
       "subfolder": "godot-game-settings-3.3.0/addons/ggs"
     },
-    "sound_manager": {
-      "url": "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip",
+    "godot_resource_groups": {
+      "url": "https://github.com/derkork/godot-resource-groups/archive/refs/tags/v0.4.2.zip",
       "source": "zip",
-      "subfolder": "godot_sound_manager-2.6.2/addons/sound_manager"
+      "subfolder": "godot-resource-groups-0.4.2/addons/godot_resource_groups"
+    },
+    "hide_private_properties": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/hide_private_properties-1_3_2.zip",
+      "source": "zip",
+      "subfolder": "addons/hide_private_properties"
     },
     "input_helper": {
       "url": "https://github.com/nathanhoad/godot_input_helper/archive/refs/tags/v4.7.0.zip",
       "source": "zip",
       "subfolder": "godot_input_helper-4.7.0/addons/input_helper"
+    },
+    "licenses": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/licenses-1_10_0.zip",
+      "source": "zip",
+      "subfolder": "addons/licenses"
     },
     "limboai": {
       "url": "https://github.com/limbonaut/limboai/releases/download/v1.5.0/limboai+v1.5.0.gdextension-4.4.zip",
@@ -42,35 +82,65 @@
       "source": "zip",
       "subfolder": "milestone-1.1.1.beta/addons/milestone"
     },
-    "netfox": {
-      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    // "netfox": {
+    //   "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    //   "source": "zip",
+    //   "subfolder": "netfox.extras.v1.25.3/addons/netfox"
+    // },
+    // "netfox.extras": {
+    //   "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    //   "source": "zip",
+    //   "subfolder": "netfox.extras.v1.25.3/addons/netfox.extras"
+    // },
+    // "netfox.internals": {
+    //   "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    //   "source": "zip",
+    //   "subfolder": "netfox.extras.v1.25.3/addons/netfox.internals"
+    // },
+    // "netfox.noray": {
+    //   "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.noray.v1.25.3.zip",
+    //   "source": "zip",
+    //   "subfolder": "netfox.noray.v1.25.3/addons/netfox.noray"
+    // },
+    "panku_console": {
+      "url": "https://github.com/Ark2000/PankuConsole/archive/refs/tags/v1.7.9.zip",
       "source": "zip",
-      "subfolder": "netfox.extras.v1.25.3/addons/netfox"
+      "subfolder": "PankuConsole-1.7.9/addons/panku_console"
     },
-    "netfox.extras": {
-      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    "promise": {
+      "url": "https://github.com/TheWalruzz/godot-promise/releases/download/2.0.1/GdPromise-2.0.1.zip",
       "source": "zip",
-      "subfolder": "netfox.extras.v1.25.3/addons/netfox.extras"
+      "subfolder": "addons/promise"
     },
-    "netfox.internals": {
-      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.extras.v1.25.3.zip",
+    "kenyoni/pot_generation": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/pot_generation-1_1_1.zip",
       "source": "zip",
-      "subfolder": "netfox.extras.v1.25.3/addons/netfox.internals"
+      "subfolder": "addons/kenyoni/pot_generation"
     },
-    "netfox.noray": {
-      "url": "https://github.com/foxssake/netfox/releases/download/v1.25.3/netfox.noray.v1.25.3.zip",
+    "proton_scatter":{
+      "url": "https://github.com/HungryProton/scatter/archive/refs/tags/4.0.zip",
       "source": "zip",
-      "subfolder": "netfox.noray.v1.25.3/addons/netfox.noray"
+      "subfolder": "scatter-4.0/addons/proton_scatter"
     },
-    "orchestrator": {
-      "url": "https://github.com/CraterCrash/godot-orchestrator/releases/download/v2.1.3.stable/godot-orchestrator-v2.1.3-stable-plugin.zip",
+    "remove_orphan_uid": {
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/remove_orphan_uid-1_1_0.zip",
       "source": "zip",
-      "subfolder": "addons/orchestrator"
+      "subfolder": "addons/kenyoni/remove_orphan_uid"
+    },
+    "runtime_debug_tools": {
+      "url": "https://github.com/bbbscarter/GodotRuntimeDebugTools/archive/refs/tags/v1.1.1.zip",
+      "source": "zip",
+      "subfolder": "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools"
     },
     "quest_system": {
       "url": "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.1.4_4.zip",
       "source": "zip",
       "subfolder": "quest-system-2.0.1.4_4/addons/quest_system"
+    },
+    "safe_resource_loader": {
+      "url": "https://github.com/derkork/godot-safe-resource-loader/archive/refs/tags/v0.3.0.zip",
+      "source": "zip",
+      "subfolder": "godot-safe-resource-loader-0.3.0/addons/safe_resource_loader"
     },
     "scene_manager": {
       "url": "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.1.1.zip",
@@ -86,6 +156,36 @@
       "url": "https://github.com/yannlemos/Signal-Lens/releases/download/v1.4.1/signal_lens.zip",
       "source": "zip",
       "subfolder": "signal_lens"
+    },
+    "SmoothScroll": {
+      "url": "https://github.com/SpyrexDE/SmoothScroll/archive/refs/tags/godot4-v1.4.0.zip",
+      "source": "zip",
+      "subfolder": "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll"
+    },
+    "sound_manager": {
+      "url": "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip",
+      "source": "zip",
+      "subfolder": "godot_sound_manager-2.6.2/addons/sound_manager"
+    },
+
+    // * Source releases
+    "proton_control_animation": {
+        "url": "https://github.com/HungryProton/proton_control_animation.git",
+        "subfolder": "addons/proton_control_animation"
+    },
+    "quick_layout_changer": {
+        "url": "https://github.com/mathrick/godot-quick-layout-changer.git",
+        "subfolder": "addons/quick_layout_changer"
+    },
+    "resources_spreadsheet_view": {
+        "url": "https://github.com/don-tnowe/godot-resources-as-sheets-plugin.git",
+        "checkout": "master",
+        "subfolder": "addons/resources_spreadsheet_view"
+    },
+    "shaderV": {
+        "url": "https://github.com/arkology/ShaderV.git",
+        "checkout": "master",
+        "subfolder": "addons/shaderV"
     }
   }
 }
