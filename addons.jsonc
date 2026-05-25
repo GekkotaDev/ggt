@@ -13,7 +13,7 @@
   "addons": {
     //* Zip releases
     "aspect_ratio_resize_container": {
-      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/aspect_ratio_resize_container-3_3_0.zip",
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/aspect_ratio_resize_container-3.4.0/aspect_ratio_resize_container-3_4_0.zip",
       "source": "zip",
       "subfolder": "addons/aspect_ratio_resize_container"
     },
@@ -23,7 +23,7 @@
     //   "subfolder": "CSG_Toolkit-1.6.1/addons/csg_toolkit"
     // },
     "custom_theme_overrides": {
-      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/custom_theme_overrides-1_2_0.zip",
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/custom_theme_overrides-1.2.0/custom_theme_overrides-1_2_0.zip",
       "source": "zip",
       "subfolder": "addons/custom_theme_overrides"
     },
@@ -58,7 +58,7 @@
       "subfolder": "godot-resource-groups-0.4.2/addons/godot_resource_groups"
     },
     "hide_private_properties": {
-      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/hide_private_properties-1_3_2.zip",
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/hide_private_properties-1.4.0/hide_private_properties-1_4_0.zip",
       "source": "zip",
       "subfolder": "addons/hide_private_properties"
     },
@@ -68,7 +68,7 @@
       "subfolder": "godot_input_helper-4.7.0/addons/input_helper"
     },
     "licenses": {
-      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/licenses-1_10_0.zip",
+      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/licenses-1.11.0/licenses-1_11_0.zip",
       "source": "zip",
       "subfolder": "addons/licenses"
     },
@@ -112,11 +112,11 @@
       "source": "zip",
       "subfolder": "addons/promise"
     },
-    "kenyoni/pot_generation": {
-      "url": "https://github.com/kenyoni-software/godot-addons/releases/download/latest/pot_generation-1_1_1.zip",
-      "source": "zip",
-      "subfolder": "addons/kenyoni/pot_generation"
-    },
+    // "kenyoni/pot_generation": {
+    //   "url": "https://github.com/kenyoni-software/godot-addons/releases/download/pot_generation-1.2.0/pot_generation-1_2_0.zip",
+    //   "source": "zip",
+    //   "subfolder": "addons/kenyoni/pot_generation"
+    // },
     "proton_scatter":{
       "url": "https://github.com/HungryProton/scatter/archive/refs/tags/4.0.zip",
       "source": "zip",

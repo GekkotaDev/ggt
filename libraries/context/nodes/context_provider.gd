@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 ## Refresh the current context.
-##
+## [br]
 ## All context consumers within the scene tree will be recalled in order to be
 ## notified that there potentially is an updated value.
 func refresh_context() -> void:

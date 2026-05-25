@@ -8,6 +8,19 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [animation]
 
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
@@ -26,8 +39,7 @@ buses/default_bus_layout="uid://bnjj8cr0jn557"
 [autoload]
 
 GGS="*res://addons/ggs/core/global_manager/global_manager.tscn"
-InputHelper="*res://addons/input_helper/input_helper.gd"
-AchievementManager="*res://addons/milestone/autoload/achievement_manager.gd"
+InputHelper="*uid://cholww48njaeh"
 WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
 Noray="*res://addons/netfox.noray/noray.gd"
 PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
@@ -36,11 +48,15 @@ NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
 NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
 NetworkEvents="*res://addons/netfox/network-events.gd"
 NetworkPerformance="*res://addons/netfox/network-performance.gd"
-QuestSystem="*res://addons/quest_system/quest_manager.gd"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-Shaker="*res://addons/shaker/src/Shaker.gd"
-SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+QuestSystem="*uid://b77kvbliweux5"
+SceneManager="*uid://j20v4cg7v8m1"
+Shaker="*uid://crcv8ts7elhel"
+SignalLens="*uid://85rkx60vm7a7"
+SoundManager="*uid://uis8d81l8sbi"
+RuntimeDebugTools="*uid://c6bkea7amdoay"
+Panku="*uid://cyftuo4syatlv"
+DebugMenu="*uid://cggqb75a8w8r"
+AchievementManager="*uid://dj1bkxbqna8jt"
 
 [debug]
 
@@ -55,13 +71,21 @@ project/assembly_name="project"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/aspect_ratio_resize_container/plugin.cfg", "res://addons/custom_theme_overrides/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/hide_private_properties/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/project.main_screen_buttons/plugin.cfg", "res://addons/proton_control_animation/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/quick_layout_changer/plugin.cfg", "res://addons/remove_orphan_uid/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gdunit4]
 
 settings/test/test_lookup_folder="tests"
 settings/test/test_discovery=true
 ui/toolbar/run_overall=true
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [input_devices]
 

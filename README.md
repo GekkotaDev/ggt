@@ -12,8 +12,6 @@ own needs — but maybe it'll work for your needs too. It assumes VS Code as you
 IDE, comes pre-configured with a default set of add-ons, and set up with what I
 perceive to be a good enough project structure to get started with.
 
-Not optimized for any particular genre or type of game, just a general starter.
-
 ## Dependencies
 
 - [ ] Godot
@@ -92,6 +90,16 @@ godot -e .  # -e is shorthand for --editor
 - [ ] Update project settings.
 - [ ] Review the codebase.
 
+## Additional Resources
+
+- [**NuGet**](https://www.nuget.org). Additional C# libraries made by other developers; especially useful for application developers.
+- [**Godot Documentation**](https://docs.godotengine.org/en/stable/). Manual containing relevant Godot resources; also built into the engine.
+- [**Godot Asset Store**](https://store.godotengine.org). Reusable assets made for the Godot game engine; includes libraries for programming.
+
+## License
+
+[Zero-Clause BSD](./LICENSE)
+
 ## Oath Against Bad Development Practices
 
 > Don't take this on a personal level; see it as my own opinions, all up to you whether to agree or not :p
@@ -108,7 +116,9 @@ I swear to...
   - [ ] ... understand that only after either measuring and/or researching that I will write code that while more difficult to understand is noticeably faster.
 - [ ] ... avoid reinventing the wheel if an addon already exists unless I have reason to reinvent the wheel — that is, for example: available addons do not meet my requirements.
 - [ ] ... in all earnest honesty that I will [**read the friendly manual**](https://en.wikipedia.org/wiki/RTFM), perhaps participate in communities such as forums, and sharpen my [google-fu](https://en.wiktionary.org/wiki/Google-fu) skills.
-  - [ ] ... acknowledge people do not like [help vampires](https://meta.stackoverflow.com/a/258208)
+  - [ ] ... acknowledge [people do not like help vampires](https://meta.stackoverflow.com/a/258208)
   - [ ] ... [don't ask if I have permission to ask](https://dontasktoask.com), I'll just ask my question right away!
-  - [ ] ... get straight to the point and ask my question, and that I will not [waste both my own time and someone else's time by first starting with "are u available?"](https://nohello.net/en/) despite online messaging being asynchronous.
+  - [ ] ... get straight to the point and ask my question, and that [I will not be a jerk by first starting with "are u available?"](https://nohello.net/en/) thus wasting everyone's time by refusing to recognize online messaging has different etiquette compared to speaking.
   - [ ] ... get the point that my peers are neither ChatGPT nor some sort of psychic mind-reader; they're at the end of the day still humans with limited bandwidth.
+
+This list again should not be taken as authority — I trust those that have had the hands on experience to know what they're doing — but please, whatever you do, don't fall into the trap of vibecoding; cheating only piles up the problems for your future self.
