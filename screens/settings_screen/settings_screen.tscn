@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://db7davuxq8c6u"]
+
+[node name="SettingsScreen" type="Control" unique_id=1388568215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=574596304]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Audio" type="Control" parent="TabContainer" unique_id=1312217543]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio" unique_id=844350693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=734737787]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer/ScrollContainer" unique_id=546514766]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DescriptionMargin" type="MarginContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=525420858]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Description" type="Label" parent="TabContainer/Audio/HBoxContainer/DescriptionMargin" unique_id=1425487962]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "..."
+
+[node name="Video" type="Control" parent="TabContainer" unique_id=2008372980]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video" unique_id=1921948682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Video/HBoxContainer" unique_id=115231698]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Video/HBoxContainer/ScrollContainer" unique_id=1926887823]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DescriptionMargin" type="MarginContainer" parent="TabContainer/Video/HBoxContainer" unique_id=2086151802]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Description" type="Label" parent="TabContainer/Video/HBoxContainer/DescriptionMargin" unique_id=1242308542]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "..."
+
+[node name="Controls" type="Control" parent="TabContainer" unique_id=260130710]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Controls" unique_id=393216694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/HBoxContainer" unique_id=1682047805]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/HBoxContainer/ScrollContainer" unique_id=685774729]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DescriptionMargin" type="MarginContainer" parent="TabContainer/Controls/HBoxContainer" unique_id=1462045729]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Description" type="Label" parent="TabContainer/Controls/HBoxContainer/DescriptionMargin" unique_id=1907504428]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "..."

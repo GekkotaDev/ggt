@@ -25,7 +25,6 @@ signal prep
 func track(property_name: StringName, default: Variant = null):
 	if not _reactive_properties.has(property_name):
 		_reactive_properties.append(property_name)
-
 	return default
 
 
@@ -53,9 +52,7 @@ func set_state(callable: Callable):
 	for key in fresh_map:
 		if stale_map[key] == fresh_map[key]:
 			continue
-
-		if not diff.has(key):
-			diff.append(key)
+		diff.append(key)
 
 	emit_changed()
 	effect.emit(diff)

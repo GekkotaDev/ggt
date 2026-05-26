@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://caegfjo5ml8dd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ty5af"]
+font_size = 24
+outline_size = 2
+
+[node name="LoadingScreen" type="Control" unique_id=438454731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=18430308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1650135426]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer" unique_id=1759080782]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=255485146]
+layout_mode = 2
+text = "LOADING"
+label_settings = SubResource("LabelSettings_ty5af")

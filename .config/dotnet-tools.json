@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "chickensoft.godotenv": {
-      "version": "2.15.1",
+      "version": "2.16.2",
       "commands": [
         "godotenv"
       ],
