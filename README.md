@@ -121,4 +121,4 @@ I swear to...
   - [ ] ... get straight to the point and ask my question, and that [I will not be a jerk by first starting with "are u available?"](https://nohello.net/en/) thus wasting everyone's time by refusing to recognize online messaging has different etiquette compared to speaking.
   - [ ] ... get the point that my peers are neither ChatGPT nor some sort of psychic mind-reader; they're at the end of the day still humans with limited bandwidth.
 
-This list again should not be taken as authority — I trust those that have had the hands on experience to know what they're doing — but please, whatever you do, don't fall into the trap of vibecoding; cheating only piles up the problems for your future self.
+This list again should not be taken as authority — I trust those that have had the hands on experience to know what they're doing — aside on one point; please be able to develop software without relying solely on Generative AI, no matter your stance please recognize you should not be reliant on being spoonfed answers and/or on a subscription service.
