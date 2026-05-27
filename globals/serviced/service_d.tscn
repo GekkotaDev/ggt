@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b2w76bdxep81l"]
+
+[ext_resource type="Script" uid="uid://m613gigd6jrn" path="res://libraries/services/nodes/service_mediator.gd" id="1_osgew"]
+[ext_resource type="Script" uid="uid://8qs186w07574" path="res://modules/services/loading_service.gd" id="2_6wm07"]
+[ext_resource type="Script" uid="uid://d20fgrcf3hr1p" path="res://modules/services/panic_service.gd" id="3_701sw"]
+
+[node name="ServiceD" type="Node" unique_id=2111246216 node_paths=PackedStringArray("services")]
+script = ExtResource("1_osgew")
+services = [NodePath("PanicService"), NodePath("LoaderService")]
+metadata/_custom_type_script = "uid://m613gigd6jrn"
+
+[node name="LoaderService" type="Node" parent="." unique_id=2105680292]
+script = ExtResource("2_6wm07")
+type = Array[int]([1])
+metadata/_custom_type_script = "uid://8qs186w07574"
+
+[node name="PanicService" type="Node" parent="." unique_id=789864889]
+script = ExtResource("3_701sw")
+state = 5
+type = Array[int]([3])
+metadata/_custom_type_script = "uid://d20fgrcf3hr1p"

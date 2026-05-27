@@ -73,6 +73,8 @@ func update_state(value: ProcessState) -> ProcessState:
 
 func _process(delta: float) -> void:
 	if state == ProcessState.TERMINATED:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		state = ProcessState.INACTIVE
 		return
 
 	if state == ProcessState.PANICKED:

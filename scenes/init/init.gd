@@ -1,5 +1,8 @@
 extends Control
 
+@export var first_scene: PackedScene
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SceneManager.change_scene(first_scene)
