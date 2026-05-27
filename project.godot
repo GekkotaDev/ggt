@@ -38,16 +38,7 @@ buses/default_bus_layout="uid://bnjj8cr0jn557"
 
 [autoload]
 
-GGS="*res://addons/ggs/core/global_manager/global_manager.tscn"
 InputHelper="*uid://cholww48njaeh"
-WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
-Noray="*res://addons/netfox.noray/noray.gd"
-PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
-NetworkTime="*res://addons/netfox/network-time.gd"
-NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
-NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
-NetworkEvents="*res://addons/netfox/network-events.gd"
-NetworkPerformance="*res://addons/netfox/network-performance.gd"
 QuestSystem="*uid://b77kvbliweux5"
 SceneManager="*uid://j20v4cg7v8m1"
 Shaker="*uid://crcv8ts7elhel"
@@ -57,6 +48,7 @@ RuntimeDebugTools="*uid://c6bkea7amdoay"
 Panku="*uid://cyftuo4syatlv"
 DebugMenu="*uid://cggqb75a8w8r"
 AchievementManager="*uid://dj1bkxbqna8jt"
+ServiceD="*uid://b2w76bdxep81l"
 
 [debug]
 
@@ -71,7 +63,7 @@ project/assembly_name="project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/aspect_ratio_resize_container/plugin.cfg", "res://addons/custom_theme_overrides/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/hide_private_properties/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/project.main_screen_buttons/plugin.cfg", "res://addons/proton_control_animation/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/quick_layout_changer/plugin.cfg", "res://addons/remove_orphan_uid/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/aspect_ratio_resize_container/plugin.cfg", "res://addons/custom_theme_overrides/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/hide_private_properties/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/project.main_screen_buttons/plugin.cfg", "res://addons/proton_control_animation/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/quick_layout_changer/plugin.cfg", "res://addons/remove_orphan_uid/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [filesystem]
 

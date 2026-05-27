@@ -37,6 +37,11 @@
       "source": "zip",
       "subfolder": "godot-debug-menu-1.2.0/addons/debug_menu"
     },
+    // "dialogue_manager": {
+    //   "url": "https://github.com/nathanhoad/godot_dialogue_manager/archive/refs/tags/v3.10.4.zip",
+    //   "source": "zip",
+    //   "subfolder": "godot_dialogue_manager-3.10.4/addons/dialogue_manager"
+    // },
     "eye_dropper": {
       "url": "https://github.com/nadjiel/eye-dropper/releases/download/v1.0.1/eye_dropper_v1.0.1.zip",
       "source": "zip",
@@ -47,11 +52,11 @@
       "source": "zip",
       "subfolder": "gdUnit4-6.0.0/addons/gdUnit4"
     },
-    "ggs": {
-      "url": "https://github.com/c16s8/godot-game-settings/archive/refs/tags/3.3.0.zip",
-      "source": "zip",
-      "subfolder": "godot-game-settings-3.3.0/addons/ggs"
-    },
+    // "ggs": {
+    //   "url": "https://github.com/c16s8/godot-game-settings/archive/refs/tags/3.3.0.zip",
+    //   "source": "zip",
+    //   "subfolder": "godot-game-settings-3.3.0/addons/ggs"
+    // },
     "godot_resource_groups": {
       "url": "https://github.com/derkork/godot-resource-groups/archive/refs/tags/v0.4.2.zip",
       "source": "zip",
