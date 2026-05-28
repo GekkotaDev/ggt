@@ -118,7 +118,7 @@ I swear to...
 - [ ] ... in all earnest honesty that I will [**read the friendly manual**](https://en.wikipedia.org/wiki/RTFM), perhaps participate in communities such as forums, and sharpen my [google-fu](https://en.wiktionary.org/wiki/Google-fu) skills.
   - [ ] ... acknowledge [people do not like help vampires](https://meta.stackoverflow.com/a/258208)
   - [ ] ... [don't ask if I have permission to ask](https://dontasktoask.com), I'll just ask my question right away!
-  - [ ] ... get straight to the point and ask my question, and that [I will not be a jerk by first starting with "are u available?"](https://nohello.net/en/) thus wasting everyone's time by refusing to recognize online messaging has different etiquette compared to speaking.
+  - [ ] ... get straight to the point and ask my question, and that [I will not be a bother by first starting with "are u available?"](https://nohello.net/en/) failing to recognize the asynchronous nature of online messaging thus wasting everyone's time.
   - [ ] ... get the point that my peers are neither ChatGPT nor some sort of psychic mind-reader; they're at the end of the day still humans with limited bandwidth.
 
 This list again should not be taken as authority — I trust those that have had the hands on experience to know what they're doing — aside on one point; please be able to develop software without relying solely on Generative AI, no matter your stance please recognize you should not be reliant on being spoonfed answers and/or on a subscription service.
