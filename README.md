@@ -107,18 +107,27 @@ godot -e .  # -e is shorthand for --editor
 I swear to...
 
 - [ ] ... avoid polluting the codebase with "manager" classes https://softwareengineering.stackexchange.com/a/129566
-  - [ ] ... understand that by naming something `XManager` I'm not telling other programmers especially my future self meaningfully what it actually does.
-  - [ ] ... know that I am not clarifying the responsibilities of modules / scripts within my codebase.
-  - [ ] ... acknowledge this offers no structure to the codebase, and that inevitably there will be `Manager` classes making a mess like scattered Lego bricks on the floor.
+  - [ ] ... understand that by naming something `XManager` I'm not telling other programmers especially my future self meaningfully what it actually does
+  - [ ] ...  recognize **I'm already managing data / behaviors** when programming hence the need to avoid manager classes.
+  - [ ] ... acknowledge this offers no structure to the codebase, and that inevitably these `Manager` will leave a difficult or worse impossible to understand mess.
   - [ ] ... either [read a book on design patterns](https://refactoring.guru/design-patterns) or [a video equivalent](https://youtu.be/tv-_1er1mWI).
 - [ ] ... avoid misguiding myself into creating complex "false optimizations" by making assumptions without either [measurements from the profiler](https://docs.godotengine.org/en/stable/tutorials/scripting/debug/the_profiler.html) or citing a well researched / highly voted upon answer.
-  - [ ] ... understand ["premature optimization is the root of all evil"](https://youtu.be/tKbV6BpH-C8) and that I'm only making it more difficult for everyone to understand my code.
+  - [ ] ... understand ["premature optimization is the root of all evil"](https://youtu.be/tKbV6BpH-C8) and that I'm only making it more difficult for everyone to understand and use my code.
   - [ ] ... understand that only after either measuring and/or researching that I will write code that while more difficult to understand is noticeably faster.
 - [ ] ... avoid reinventing the wheel if an addon already exists unless I have reason to reinvent the wheel — that is, for example: available addons do not meet my requirements.
+  - (Yes, there are other valid reasons to reinvent the wheel such as for the purpose of learning, but it's also important to try accomplish deadlines)
 - [ ] ... in all earnest honesty that I will [**read the friendly manual**](https://en.wikipedia.org/wiki/RTFM), perhaps participate in communities such as forums, and sharpen my [google-fu](https://en.wiktionary.org/wiki/Google-fu) skills.
   - [ ] ... acknowledge [people do not like help vampires](https://meta.stackoverflow.com/a/258208)
   - [ ] ... [don't ask if I have permission to ask](https://dontasktoask.com), I'll just ask my question right away!
-  - [ ] ... get straight to the point and ask my question, and that [I will not be a bother by first starting with "are u available?"](https://nohello.net/en/) failing to recognize the asynchronous nature of online messaging thus wasting everyone's time.
+  - [ ] ... [get straight to the point and ask my question](https://nohello.net/en/) and understand it's not rude; it's rude to ask "are u available?" in online messaging as it defeats the point and wastes time.
   - [ ] ... get the point that my peers are neither ChatGPT nor some sort of psychic mind-reader; they're at the end of the day still humans with limited bandwidth.
+- [ ] ... **understand** Agile facilitates being able to respond to changing client requirements but is **not** an excuse to have no defined vision (e.g: being the "ideas guy" yet lack the competency for a cohesive game or story).
 
 This list again should not be taken as authority — I trust those that have had the hands on experience to know what they're doing — aside on one point; please be able to develop software without relying solely on Generative AI, no matter your stance please recognize you should not be reliant on being spoonfed answers and/or on a subscription service.
+
+## TODO
+
+- [ ] Set up boilerplate for creating game installers.
+  - [ ] Windows: NSIS, Inno, Wix, Qt, etc.
+  - [ ] Linux: Qt, AppImages, ???
+  - [ ] macOS: Automated `.app` bundles
