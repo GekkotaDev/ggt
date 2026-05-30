@@ -15,7 +15,7 @@ func _ready() -> void:
 		button = parent
 
 	button.item_selected.connect(
-		func(new: float):
+		func(new: int):
 			value = new
 	)
 
