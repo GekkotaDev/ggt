@@ -2,6 +2,7 @@
 class_name SettingsSerde
 extends Node
 
+@export_multiline var description: String
 @export var file: SettingsFile
 @export var collection_id: String
 @export var key: String

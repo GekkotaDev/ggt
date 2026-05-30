@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://db7davuxq8c6u"]
 
 [ext_resource type="Script" uid="uid://dn37dumo6vaqx" path="res://screens/settings_screen/settings_screen.gd" id="1_op5ss"]
-[ext_resource type="Script" uid="uid://b4em3qbgk8ll7" path="res://libraries/settings/nodes/settings_store.gd" id="2_urhf5"]
+[ext_resource type="Script" uid="uid://dlb2l8ife1xev" path="res://libraries/settings/nodes/settings_description_view.gd" id="2_urhf5"]
+[ext_resource type="Script" uid="uid://xt6new1td0o8" path="res://libraries/settings/nodes/settings_description_data.gd" id="3_51ot8"]
 
-[node name="SettingsScreen" type="Control" unique_id=1388568215 node_paths=PackedStringArray("store", "controls")]
+[node name="SettingsScreen" type="Control" unique_id=1388568215]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,16 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op5ss")
-store = NodePath("SettingsStore")
-controls = {
-"button.cancel": NodePath("VBoxContainer/HBoxContainer/CancelButton"),
-"button.save": NodePath("VBoxContainer/HBoxContainer/SaveButton")
-}
-
-[node name="SettingsStore" type="Node" parent="." unique_id=1843611299 node_paths=PackedStringArray("menu")]
-script = ExtResource("2_urhf5")
-menu = NodePath("../VBoxContainer/TabContainer")
-metadata/_custom_type_script = "uid://b4em3qbgk8ll7"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1410709297]
 layout_mode = 1
@@ -47,6 +38,11 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="SettingsDescriptionView" type="Node" parent="VBoxContainer/TabContainer/Audio" unique_id=1522653350 node_paths=PackedStringArray("label")]
+script = ExtResource("2_urhf5")
+label = NodePath("../HBoxContainer/DescriptionMargin/Description")
+metadata/_custom_type_script = "uid://dlb2l8ife1xev"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio" unique_id=844350693]
 layout_mode = 1
 anchors_preset = 15
@@ -55,14 +51,112 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer" unique_id=734737787]
+[node name="SettingsMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer" unique_id=2097919146]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin" unique_id=734737787]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/ScrollContainer" unique_id=546514766]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer" unique_id=546514766]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="TopPadding" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=1199074592]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_top = 0
+
+[node name="MasterVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=848802379]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MasterVolume" unique_id=1085771755]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MasterVolume" unique_id=1880860902]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MasterVolume" unique_id=258940579]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="MusicVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=1427975846]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MusicVolume" unique_id=157203789]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MusicVolume" unique_id=1914326800]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MusicVolume" unique_id=944546573]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="FXVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=567814870]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/FXVolume" unique_id=608019031]
+layout_mode = 2
+text = "FX Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/FXVolume" unique_id=1213495131]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/FXVolume" unique_id=1329824035]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="UIVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=812246828]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/UIVolume" unique_id=578783348]
+layout_mode = 2
+text = "UI Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/UIVolume" unique_id=1948237400]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/UIVolume" unique_id=102783024]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="AmbientVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=2143508748]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/AmbientVolume" unique_id=600448690]
+layout_mode = 2
+text = "Ambient Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/AmbientVolume" unique_id=579304364]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/AmbientVolume" unique_id=672235310]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="ToggleAudio" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=988331123]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/ToggleAudio" unique_id=1298826327]
+layout_mode = 2
+text = "Toggle Audio"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/ToggleAudio" unique_id=1514464279]
+layout_mode = 2
+
+[node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/ToggleAudio" unique_id=630250015]
+script = ExtResource("3_51ot8")
+metadata/_custom_type_script = "uid://xt6new1td0o8"
 
 [node name="DescriptionMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer" unique_id=525420858]
 custom_minimum_size = Vector2(512, 0)
@@ -92,14 +186,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer" unique_id=115231698]
+[node name="SettingsMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer" unique_id=82416324]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer/SettingsMargin" unique_id=730516541]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer/ScrollContainer" unique_id=1926887823]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer/SettingsMargin/ScrollContainer" unique_id=670000353]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="TopPadding" type="MarginContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=334771340]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_top = 0
 
 [node name="DescriptionMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Video/HBoxContainer" unique_id=2086151802]
 custom_minimum_size = Vector2(512, 0)
@@ -129,14 +236,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer" unique_id=1682047805]
+[node name="SettingsMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer" unique_id=850752094]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer/SettingsMargin" unique_id=840172118]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer/ScrollContainer" unique_id=685774729]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer/SettingsMargin/ScrollContainer" unique_id=1832228794]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="TopPadding" type="MarginContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=1538217204]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_top = 0
 
 [node name="DescriptionMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Controls/HBoxContainer" unique_id=1462045729]
 custom_minimum_size = Vector2(512, 0)
