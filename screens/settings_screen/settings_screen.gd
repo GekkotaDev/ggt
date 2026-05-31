@@ -32,6 +32,7 @@ func _ready() -> void:
 				assert(collection.applied() == OK, "Invalid application of settings.")
 				collection.emit_changed()
 
+			file.persist()
 			# SoundManager.play_ui_sound()
 			queue_free()
 	)
