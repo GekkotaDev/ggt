@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dn37dumo6vaqx" path="res://screens/settings_screen/settings_screen.gd" id="1_op5ss"]
 [ext_resource type="Script" uid="uid://dlb2l8ife1xev" path="res://libraries/settings/nodes/settings_description_view.gd" id="2_urhf5"]
 [ext_resource type="Script" uid="uid://xt6new1td0o8" path="res://libraries/settings/nodes/settings_description_data.gd" id="3_51ot8"]
+[ext_resource type="Script" uid="uid://dw1yeui5jm4bp" path="res://libraries/settings/nodes/settings_range.gd" id="4_lm2ns"]
+[ext_resource type="Script" uid="uid://d1k35t4fx0iyu" path="res://libraries/settings/nodes/settings_toggle.gd" id="5_t3f6d"]
 
 [node name="SettingsScreen" type="Control" unique_id=1388568215]
 layout_mode = 3
@@ -87,6 +89,10 @@ layout_mode = 2
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
 
+[node name="SettingsRange" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MasterVolume" unique_id=1102842881]
+script = ExtResource("4_lm2ns")
+metadata/_custom_type_script = "uid://dw1yeui5jm4bp"
+
 [node name="MusicVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=1427975846]
 layout_mode = 2
 
@@ -100,6 +106,10 @@ layout_mode = 2
 [node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MusicVolume" unique_id=944546573]
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="SettingsRange" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/MusicVolume" unique_id=529393123]
+script = ExtResource("4_lm2ns")
+metadata/_custom_type_script = "uid://dw1yeui5jm4bp"
 
 [node name="FXVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=567814870]
 layout_mode = 2
@@ -115,6 +125,10 @@ layout_mode = 2
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
 
+[node name="SettingsRange" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/FXVolume" unique_id=704665106]
+script = ExtResource("4_lm2ns")
+metadata/_custom_type_script = "uid://dw1yeui5jm4bp"
+
 [node name="UIVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=812246828]
 layout_mode = 2
 
@@ -128,6 +142,10 @@ layout_mode = 2
 [node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/UIVolume" unique_id=102783024]
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="SettingsRange" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/UIVolume" unique_id=1651632651]
+script = ExtResource("4_lm2ns")
+metadata/_custom_type_script = "uid://dw1yeui5jm4bp"
 
 [node name="AmbientVolume" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=2143508748]
 layout_mode = 2
@@ -143,6 +161,10 @@ layout_mode = 2
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
 
+[node name="SettingsRange" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/AmbientVolume" unique_id=119018686]
+script = ExtResource("4_lm2ns")
+metadata/_custom_type_script = "uid://dw1yeui5jm4bp"
+
 [node name="ToggleAudio" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer" unique_id=988331123]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -157,6 +179,10 @@ layout_mode = 2
 [node name="SettingsDescriptionData" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/ToggleAudio" unique_id=630250015]
 script = ExtResource("3_51ot8")
 metadata/_custom_type_script = "uid://xt6new1td0o8"
+
+[node name="SettingsToggle" type="Node" parent="VBoxContainer/TabContainer/Audio/HBoxContainer/SettingsMargin/ScrollContainer/VBoxContainer/ToggleAudio" unique_id=1415606671]
+script = ExtResource("5_t3f6d")
+metadata/_custom_type_script = "uid://d1k35t4fx0iyu"
 
 [node name="DescriptionMargin" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/HBoxContainer" unique_id=525420858]
 custom_minimum_size = Vector2(512, 0)

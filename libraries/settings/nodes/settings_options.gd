@@ -1,6 +1,7 @@
 class_name SettingsOption
 extends SettingsSerde
 
+@export var id: String
 @export var value: int
 @export var button: OptionButton
 

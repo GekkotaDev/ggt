@@ -1,6 +1,6 @@
 extends UIControllerNode
 
-@export var settings: SettingsFile
+@export var file: SettingsFile
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,10 +10,29 @@ func _ready() -> void:
 
 	save_button.pressed.connect(
 		func():
+			var settings: Array[SettingsSerde] = find_children("*").filter(
+				func(node: Node):
+					return node is SettingsSerde
+			)
+
+			for setting in settings:
+				var collection: SettingResource = file["collections"][setting.collection_id]
+
+				if setting is SettingsInput:
+					collection[setting.key] = setting.value
+				if setting is SettingsOption:
+					collection[setting.key] = setting.value
+				if setting is SettingsRange:
+					collection[setting.key] = setting.value
+				if setting is SettingsToggle:
+					collection[setting.key] = setting.value
+
+			# SoundManager.play_ui_sound()
 			queue_free()
 	)
 
 	cancel_button.pressed.connect(
 		func():
+			# SoundManager.play_ui_sound()
 			queue_free()
 	)
