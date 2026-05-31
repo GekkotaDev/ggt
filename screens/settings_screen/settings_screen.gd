@@ -27,6 +27,11 @@ func _ready() -> void:
 				if setting is SettingsToggle:
 					collection[setting.key] = setting.value
 
+			for collection in file["collections"]:
+				collection = collection as SettingResource
+				assert(collection.applied() == OK, "Invalid application of settings.")
+				collection.emit_changed()
+
 			# SoundManager.play_ui_sound()
 			queue_free()
 	)
