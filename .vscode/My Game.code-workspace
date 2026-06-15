@@ -1,12 +1,16 @@
 {
 	"folders": [
-		{
+        {
             "name": "Game",
-			"path": ".."
-		},
+            "path": ".."
+        },
         {
             "name": "Documentation",
             "path": "../docs"
+        },
+        {
+            "name": "Native",
+            "path": "../native"
         }
     ],
     "extensions": {
