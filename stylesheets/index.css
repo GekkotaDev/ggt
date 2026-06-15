@@ -1,0 +1,22 @@
+/*
+  The date January 1st, year 1 is used as a sentinel value to mark which
+  articles should be hidden - USUALLY because they're still drafts.
+
+  While MkDocs Material does hide drafts in production builds, it does
+  clutter up the main development logs page regardless.
+ */
+header:has(h1#development-logs) ~ article.md-post:has(time[datetime="0001-01-01 00:00:00+00:00"]) {
+  display: none;
+  visibility: hidden;
+}
+
+
+/* Actual styling begins here */
+article.md-post:has(p) p {
+  text-align: justify;
+  text-justify: auto;
+}
+
+div .mermaid {
+  text-align: center;
+}
