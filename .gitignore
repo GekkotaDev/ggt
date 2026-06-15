@@ -80,6 +80,7 @@ mono_crash.*.json
 
 # Addons
 .addons
+.ggg.state
 addons/*
 !addons/.editorconfig
 !addons/project.*

@@ -1,0 +1,323 @@
+## * Godot Goodie Grabber configuration file
+## * https://godotneers.github.io/ggg/docs/reference/configuration/
+## *
+## * If this is not installed on your system, you may do so with the following
+## * instructions
+## *
+## * On Linux and macOS:
+## * curl -fsSL https://github.com/godotneers/ggg/releases/latest/download/ggg-installer.sh | sh
+## *
+## * On Windows via Powershell[1]:
+## * irm https://github.com/godotneers/ggg/releases/latest/download/ggg-installer.ps1 | iex
+## *
+## * [1] Note that the legacy Command Prompt shell is not a supported method.
+## *
+## * Updates may be performed with the `ggg-update` command.
+## *
+## * Additional information may be found here
+## * https://godotneers.github.io/ggg/docs/installation/
+## *
+## *
+## * Upon entering `ggg` into your shell without passing additional arguments, 
+## * you may receive the following output:
+## * 
+## * A project manager for Godot games
+## * 
+## * Usage: ggg.exe <COMMAND>
+## * 
+## * Commands:
+## *   sync    Resolve and install all dependencies, download Godot if needed
+## *   edit    Open the project in the pinned Godot editor
+## *   run     Run Godot against the project
+## *   add     Add a new dependency
+## *   search  Search the Godot Asset Library
+## *   update  Check for updates to Godot Asset Library dependencies
+## *   remove  Remove a dependency
+## *   deps    List all dependencies declared in ggg.toml
+## *   diff    Show local changes to ggg-owned files
+## *   ls-dep  List the raw contents of a dependency's cache entry
+## *   help    Print this message or the help of the given subcommand(s)
+## *
+## * The sync command is particularly important.
+## *
+## *
+## * Here is a full example of what a configuration file may look like
+## * https://godotneers.github.io/ggg/docs/reference/configuration#full-example
+## *
+## * [project]
+## * godot = "4.3-stable"
+## * export_templates = true   # download and install export templates alongside the engine
+## * 
+## * [sync]
+## * # Godot rewrites these files on every project open; skip conflict detection for them
+## * force_overwrite = ["**/*.import", "**/*.uid"]
+## * 
+## * # Git dep - single mapping, exclude the bundled examples
+## * [[dependency]]
+## * name    = "gut"
+## * git     = "https://github.com/bitwes/Gut.git"
+## * rev     = "v9.3.0"
+## * map     = [{ from = "addons/gut" }]
+## * exclude = ["addons/gut/examples"]
+## * 
+## * # Git dep - multiple mappings: install the addon and also grab the examples
+## * [[dependency]]
+## * name = "phantom-camera"
+## * git  = "https://github.com/ramokz/phantom-camera.git"
+## * rev  = "v0.8"
+## * map  = [
+## *     { from = "addons/phantom_camera" },
+## *     { from = "examples/", to = "examples/phantom_camera" },
+## * ]
+## * 
+## * # Archive dep - strip the top-level wrapper directory, install just the addon
+## * [[dependency]]
+## * name             = "debug-draw"
+## * url              = "https://github.com/example/debug_draw_3d/releases/download/v1.0/debug_draw_3d.zip"
+## * sha256           = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+## * strip_components = 1
+## * map              = [{ from = "addons/debug_draw_3d" }]
+## * 
+## * # Git dep - no map, copies the entire repository into the project root
+## * [[dependency]]
+## * name = "dialogue-manager"
+## * git  = "https://github.com/nathanhoad/godot_dialogue_manager.git"
+## * rev  = "v2.34.0"
+
+## It's recommended to manage your Godot development environment through Godot
+## Goodie Grabber. This helps to keep everyone in sync with the Godot version
+## that has been agreed upon by the team and minimizes confusion stemming from
+## bugs caused by being on the wrong version.
+##
+## In addition, it sidesteps the issue of Steam automatically updating the
+## Godot install and potentially breaking the game or the fact Godot on Steam
+## does not support the C# programming language - particularly important to
+## have since not all dependencies are either GDScript or GDExtension based.
+[project]
+godot = "4.6-stable-mono" # Which version of Godot does it use.
+# export_templates = true # Automatically install export templates if not installed.
+
+## https://godotneers.github.io/ggg/docs/reference/commands/sync#automatically-overwriting-engine-managed-files
+[sync]
+force_overwrite = ["**/*.import", "**/*.uid"]
+
+## Software dependencies
+##
+## This section lists external or third party assets and/or code made by other
+## developers or artists that YOUR game is dependent on.
+##
+## You should stick with Zip releases with SHA256 hashes specified for
+## validating if the dependency hasn't been tampered with and/or sourcing it
+## straight from the Git repository with a revision tag.
+##
+## Using the ID from the Godot Asset Library (not to be confused with the
+## newer Asset Store) is not advisable. It is impossible to pin to a specific
+## version or to validate the asset hasn't been tampered with a virus.
+##
+## Examples why one should 📌 pin their versions.
+## https://securitylabs.datadoghq.com/articles/node-ipc-npm-malware-analysis/
+## https://github.com/advisories/GHSA-97m3-w2cp-4xx6
+## https://tanstack.com/blog/npm-supply-chain-compromise-postmortem
+##
+## Do note this issue is not exclusive to any particular programming languages.
+
+# ? Template
+# [[dependency]]
+# name = ""
+# url = ""
+# map = [{ from = "/" }]
+# sha256 = ""
+
+# ? Template
+# [[depedency]]
+# name = ""
+# git = ""
+# rev = ""
+
+[[dependency]]
+name = "aspect_ratio_resize_container"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/aspect_ratio_resize_container-3.4.0/aspect_ratio_resize_container-3_4_0.zip"
+map = [{ from = "addons/aspect_ratio_resize_container" }]
+sha256 = "980c0300e334288a192046ea9445658f7cec1658356a9869e696429a159aa145"
+
+[[dependency]]
+name = "custom_theme_overrides"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/custom_theme_overrides-1.2.0/custom_theme_overrides-1_2_0.zip"
+map = [{ from = "addons/custom_theme_overrides" }]
+
+# [[dependency]]
+# name = "debug_draw_3d"
+# url = "https://github.com/DmitriySalnikov/godot_debug_draw_3d/releases/download/1.7.3/debug-draw-3d_1.7.3.zip"
+# map = [{ from = "debug_draw_3d-1.7.3/addons/debug_draw_3d" }]
+# sha256 = "e16c7e1bd7f4c30d8e503ce424caef5b9e2fd5f44094cf00be66c334aff54c70"
+
+[[dependency]]
+name = "debug_menu"
+url = "https://github.com/godot-extended-libraries/godot-debug-menu/archive/refs/tags/v1.2.0.zip"
+map = [
+    { from = "godot-debug-menu-1.2.0/addons/debug_menu", to = "addons/debug_menu" },
+]
+
+# [[dependency]]
+# name = "dialogue_manager"
+# url = "https://github.com/nathanhoad/godot_dialogue_manager/archive/refs/tags/v3.10.4.zip"
+# map = [{ from = "godot_dialogue_manager-3.10.4/addons/dialogue_manager" }]
+
+[[dependency]]
+name = "gdmaim"
+url = "https://github.com/cherriesandmochi/gdmaim/archive/refs/tags/0.3.0.zip"
+map = [{ from = "gdmaim-0.3.0/addons/gdmaim", to = "addons/gdmai" }]
+
+[[dependency]]
+name = "gdUnit4"
+url = "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip"
+map = [{ from = "gdUnit4-6.0.0/addons/gdUnit4", to = "addons/gdUnit4" }]
+
+[[dependency]]
+name = "godot_resource_groups"
+url = "https://github.com/derkork/godot-resource-groups/archive/refs/tags/v0.4.2.zip"
+map = [
+    { from = "godot-resource-groups-0.4.2/addons/godot_resource_groups", to = "addons/godot_resource_groups" },
+]
+
+[[dependency]]
+name = "hide_private_properties"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/hide_private_properties-1.4.0/hide_private_properties-1_4_0.zip"
+map = [{ from = "addons/hide_private_properties" }]
+
+[[dependency]]
+name = "input_helper"
+url = "https://github.com/nathanhoad/godot_input_helper/archive/refs/tags/v4.7.0.zip"
+map = [
+    { from = "godot_input_helper-4.7.0/addons/input_helper", to = "addons/input_helper" },
+]
+
+[[dependency]]
+name = "licenses"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/licenses-1.11.0/licenses-1_11_0.zip"
+map = [{ from = "addons/licenses" }]
+
+[[dependency]]
+name = "limboai"
+url = "https://github.com/limbonaut/limboai/releases/download/v1.5.0/limboai+v1.5.0.gdextension-4.4.zip"
+map = [{ from = "addons/limboai" }]
+
+[[dependency]]
+name = "milestone"
+url = "https://github.com/jelolul/milestone/archive/refs/tags/v1.1.1.beta.zip"
+map = [
+    { from = "milestone-1.1.1.beta/addons/milestone", to = "addons/milestone" },
+]
+
+[[dependency]]
+name = "panku_console"
+url = "https://github.com/Ark2000/PankuConsole/archive/refs/tags/v1.7.9.zip"
+map = [
+    { from = "PankuConsole-1.7.9/addons/panku_console", to = "addons/panku_console" },
+]
+
+[[dependency]]
+name = "promise"
+url = "https://github.com/TheWalruzz/godot-promise/releases/download/2.0.1/GdPromise-2.0.1.zip"
+map = [{ from = "addons/promise" }]
+
+[[dependency]]
+name = "proton_scatter"
+url = "https://github.com/HungryProton/scatter/archive/refs/tags/4.0.zip"
+map = [
+    { from = "scatter-4.0/addons/proton_scatter", to = "addons/proton_scatter" },
+    { from = "scatter-4.0/addons/proton_scatter/demos", to = "examples/proton_scatter" },
+]
+
+[[dependency]]
+name = "remove_orphan_uid"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/latest/remove_orphan_uid-1_1_0.zip"
+map = [{ from = "addons/kenyoni/remove_orphan_uid" }]
+
+[[dependency]]
+name = "runtime_debug_tools"
+url = "https://github.com/bbbscarter/GodotRuntimeDebugTools/archive/refs/tags/v1.1.1.zip"
+map = [
+    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools", to = "addons/runtime_debug_tools" },
+    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools/examples", to = "examples/runtime_debug_tools" },
+]
+
+[[dependency]]
+name = "quest_system"
+url = "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.1.4_4.zip"
+map = [
+    { from = "quest-system-2.0.1.4_4/addons/quest_system", to = "addons/quest_system" },
+]
+
+[[dependency]]
+name = "safe_resource_loader"
+url = "https://github.com/derkork/godot-safe-resource-loader/archive/refs/tags/v0.3.0.zip"
+map = [
+    { from = "godot-safe-resource-loader-0.3.0/addons/safe_resource_loader", to = "addons/safe_resource_loader" },
+]
+
+[[dependency]]
+name = "scene_manager"
+url = "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.1.1.zip"
+map = [
+    { from = "Scene-Manager-1.1.1/addons/scene_manager", to = "addons/scene_manager" },
+]
+
+[[dependency]]
+name = "shaker"
+url = "https://github.com/Eneskp3441/Shaker/archive/refs/tags/v1.0.7.zip"
+map = [{ from = "Shaker-1.0.7/addons/shaker", to = "addons/shaker" }]
+
+[[dependency]]
+name = "signal_lens"
+url = "https://github.com/yannlemos/Signal-Lens/releases/download/v1.4.1/signal_lens.zip"
+map = [{ from = "signal_lens", to = "addons/signal_lens" }]
+
+[[dependency]]
+name = "SmoothScroll"
+url = "https://github.com/SpyrexDE/SmoothScroll/archive/refs/tags/godot4-v1.4.0.zip"
+map = [
+    { from = "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll", to = "addons/SmoothScroll" },
+]
+
+[[dependency]]
+name = "sound_manager"
+url = "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip"
+map = [
+    { from = "godot_sound_manager-2.6.2/addons/sound_manager", to = "addons/sound_manager" },
+]
+
+[[dependency]]
+name = "spanning_table"
+url = "https://github.com/Magodra/SpanningTableContainer/archive/refs/tags/v1.1.0.zip"
+map = [{ from = "SpanningTableContainer-1.1.0/addons/spanning_table", to = "addons/spanning_table" }]
+
+[[dependency]]
+name = "proton_control_animation"
+git = "https://github.com/HungryProton/proton_control_animation.git"
+rev = "8e5ff34be60e3c0a6253e6dd968834178fa369d0"
+map = [
+    { from = "addons/proton_control_animation" },
+    { from = "addons/proton_control_animation/examples", to = "examples/proton_control_animation" },
+]
+
+[[dependency]]
+name = "quick_layout_changer"
+git = "https://github.com/mathrick/godot-quick-layout-changer.git"
+rev = "be6cd9fd9865a27528541e383f6d3254e2e77d64"
+map = [{ from = "addons/quick_layout_changer" }]
+
+[[dependency]]
+name = "resources_spreadsheet_view"
+git = "https://github.com/don-tnowe/godot-resources-as-sheets-plugin.git"
+rev = "3363e0d2136c432c989ac1f249aa8aaa634e84e9"
+map = [{ from = "addons/resources_spreadsheet_view" }]
+
+[[dependency]]
+name = "shaderV"
+git = "https://github.com/arkology/ShaderV.git"
+rev = "6325563d702994e33cf01cb967ee490728766593"
+map = [
+    { from = "addons/shaderV" },
+    { from = "addons/shaderV/examples", to = "examples/shaderV" },
+]

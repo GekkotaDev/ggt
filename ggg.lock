@@ -1,0 +1,138 @@
+[[dependency]]
+name = "aspect_ratio_resize_container"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/aspect_ratio_resize_container-3.4.0/aspect_ratio_resize_container-3_4_0.zip"
+archive_sha = "980c0300e334288a192046ea9445658f7cec1658356a9869e696429a159aa145"
+
+[[dependency]]
+name = "custom_theme_overrides"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/custom_theme_overrides-1.2.0/custom_theme_overrides-1_2_0.zip"
+archive_sha = "01d9a4a92a4b04561084899fefd746a3979c1dfaab5af6cef080fda7123cea84"
+
+[[dependency]]
+name = "debug_menu"
+url = "https://github.com/godot-extended-libraries/godot-debug-menu/archive/refs/tags/v1.2.0.zip"
+archive_sha = "2a3ff055adde209acf32f819b66d06a364e7d258e3da76e134f1ae3b69b65b6c"
+
+[[dependency]]
+name = "gdmaim"
+url = "https://github.com/cherriesandmochi/gdmaim/archive/refs/tags/0.3.0.zip"
+archive_sha = "7f969a62fd5903bfc0b2b58006d1fa95fa30ef253a2b5186855136d7135df75d"
+
+[[dependency]]
+name = "gdUnit4"
+url = "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip"
+archive_sha = "1bca6b19dd25bf50f933b75d588b8e5e90bed5d10319aaca242c29279c7fedd2"
+
+[[dependency]]
+name = "godot_resource_groups"
+url = "https://github.com/derkork/godot-resource-groups/archive/refs/tags/v0.4.2.zip"
+archive_sha = "4a61b85772c44ecbcf012648b7451969428d4bec3f2f294edf3d0346480ff9f5"
+
+[[dependency]]
+name = "hide_private_properties"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/hide_private_properties-1.4.0/hide_private_properties-1_4_0.zip"
+archive_sha = "c4ca720c9a5534b232fe146a400828e8a9cb64065c486ff81a3d64831dd969eb"
+
+[[dependency]]
+name = "input_helper"
+url = "https://github.com/nathanhoad/godot_input_helper/archive/refs/tags/v4.7.0.zip"
+archive_sha = "f52a74a2399c48a2dd90356ddd87478358b33088655509a1e95baf2ff411f3bd"
+
+[[dependency]]
+name = "licenses"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/licenses-1.11.0/licenses-1_11_0.zip"
+archive_sha = "63b936e1ffea3aea683cce54ad0c8f9e23f894c8150664773087c1d847e4069a"
+
+[[dependency]]
+name = "limboai"
+url = "https://github.com/limbonaut/limboai/releases/download/v1.5.0/limboai+v1.5.0.gdextension-4.4.zip"
+archive_sha = "52634c8521e7ad1546d375992d00619d040d0ad67c2555a70aedb6e7c92a80a9"
+
+[[dependency]]
+name = "milestone"
+url = "https://github.com/jelolul/milestone/archive/refs/tags/v1.1.1.beta.zip"
+archive_sha = "e6f6430119c2549dce7fdc7ab72bb8dabd64a50818482fc2d4e37e790def23cc"
+
+[[dependency]]
+name = "panku_console"
+url = "https://github.com/Ark2000/PankuConsole/archive/refs/tags/v1.7.9.zip"
+archive_sha = "cd6f7e0814fd3368c40e17f388ec20292fc25a3f0cd7ca483e212f40d0d9da2c"
+
+[[dependency]]
+name = "promise"
+url = "https://github.com/TheWalruzz/godot-promise/releases/download/2.0.1/GdPromise-2.0.1.zip"
+archive_sha = "1298e642790158d8b03c05fe21faf16b49f91cb527230a662a9c9db63a359ad3"
+
+[[dependency]]
+name = "proton_scatter"
+url = "https://github.com/HungryProton/scatter/archive/refs/tags/4.0.zip"
+archive_sha = "6a25cf733c3c0ccdf842aa805e25b38ce8c76f0afe1457d3babf21031f2ed9e9"
+
+[[dependency]]
+name = "remove_orphan_uid"
+url = "https://github.com/kenyoni-software/godot-addons/releases/download/latest/remove_orphan_uid-1_1_0.zip"
+archive_sha = "3645407df016ca5615016526a6f7a7af94dfacbe099857f08618190f86a980e8"
+
+[[dependency]]
+name = "runtime_debug_tools"
+url = "https://github.com/bbbscarter/GodotRuntimeDebugTools/archive/refs/tags/v1.1.1.zip"
+archive_sha = "1610dbe06297ec37f4e13d7c789a4b3ea91b6fca49dc7656a815873b6abab200"
+
+[[dependency]]
+name = "quest_system"
+url = "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.1.4_4.zip"
+archive_sha = "af875c5cd555e5e1584ecf7881bb2ac48436c6bfc3247a4c0ce097065644b18f"
+
+[[dependency]]
+name = "safe_resource_loader"
+url = "https://github.com/derkork/godot-safe-resource-loader/archive/refs/tags/v0.3.0.zip"
+archive_sha = "84657de6ea27062097c0f2ac8962e3b2cc9d3f136fb3770d477a74b35529135e"
+
+[[dependency]]
+name = "scene_manager"
+url = "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.1.1.zip"
+archive_sha = "3e475907054e4646b39ba9bab0f76abe748b9ddda98934c54a68ed91db94b7d9"
+
+[[dependency]]
+name = "shaker"
+url = "https://github.com/Eneskp3441/Shaker/archive/refs/tags/v1.0.7.zip"
+archive_sha = "a7177357d6909ee6506c0fa1021ed39c98dbfaeb423c53cd1331ad0436b96180"
+
+[[dependency]]
+name = "signal_lens"
+url = "https://github.com/yannlemos/Signal-Lens/releases/download/v1.4.1/signal_lens.zip"
+archive_sha = "9b59a247ae43d0f2dbc2faeca56d4eb5da02113618e74288f7540725da0774d0"
+
+[[dependency]]
+name = "SmoothScroll"
+url = "https://github.com/SpyrexDE/SmoothScroll/archive/refs/tags/godot4-v1.4.0.zip"
+archive_sha = "6ffffe0f71401c1560d0c93510016b23303edbebf2ac5660816bb6c9d5bb694e"
+
+[[dependency]]
+name = "sound_manager"
+url = "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip"
+archive_sha = "599c858e9f3ba30c0fa12bb31b8b254c203d1af71b3dd778dd5eeffb74ee0059"
+
+[[dependency]]
+name = "proton_control_animation"
+git = "https://github.com/HungryProton/proton_control_animation.git"
+rev = "8e5ff34be60e3c0a6253e6dd968834178fa369d0"
+sha = "8e5ff34be60e3c0a6253e6dd968834178fa369d0"
+
+[[dependency]]
+name = "quick_layout_changer"
+git = "https://github.com/mathrick/godot-quick-layout-changer.git"
+rev = "be6cd9fd9865a27528541e383f6d3254e2e77d64"
+sha = "be6cd9fd9865a27528541e383f6d3254e2e77d64"
+
+[[dependency]]
+name = "resources_spreadsheet_view"
+git = "https://github.com/don-tnowe/godot-resources-as-sheets-plugin.git"
+rev = "3363e0d2136c432c989ac1f249aa8aaa634e84e9"
+sha = "3363e0d2136c432c989ac1f249aa8aaa634e84e9"
+
+[[dependency]]
+name = "shaderV"
+git = "https://github.com/arkology/ShaderV.git"
+rev = "6325563d702994e33cf01cb967ee490728766593"
+sha = "6325563d702994e33cf01cb967ee490728766593"
