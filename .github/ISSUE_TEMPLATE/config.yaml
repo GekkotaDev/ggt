@@ -1,0 +1,14 @@
+# Whether or not the game uses this is dependent on the development team
+#
+# If external bug tracking and enhancement propoosal tools such as Jira are
+# utilized instead then this folder may be deleted.
+#
+# Otherwise, you may configure issue templates here
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+blank_issues_enabled: false
+
+# Here perhaps is where one should state a Discord server.
+# contact_links:
+#   - name: Not Listed?
+#     url: "https://about:blank"
+#     about: For any issues not listed here, you may use the Discussions tab.

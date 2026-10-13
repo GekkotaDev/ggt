@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/features=PackedStringArray("4.7")
+
+[autoload]
+
+BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
+BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://cases/": "gray",
+"res://db/": "blue",
+"res://i18n/": "yellow",
+"res://scenes/": "yellow",
+"res://script_templates/": "gray",
+"res://scripts/": "gray",
+"res://tasks/": "blue"
+}
+
+[filesystem]
+
+import/blender/enabled=false
+
+[limbo_ai]
+
+behavior_tree/behavior_tree_default_dir="res://db/ai/trees"
+behavior_tree/user_task_dirs=PackedStringArray("res://db/ai/tasks")
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+common/physics_interpolation=true

@@ -1,0 +1,35 @@
+name: Language filter
+
+on:
+  issue_comment:
+    types: [created, edited]
+  issues:
+    types: [opened, edited, reopened]
+  pull_request:
+    types: [opened, edited, reopened]
+
+# Required permissions
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Scan issue or pull requests
+      # Conditionally run the step if the actor isn't a bot
+      if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]' }}
+      uses: IEvangelist/profanity-filter@main
+      id: language-filter
+      with:
+        token: ${{ secrets.PROFANITY_TOKEN }}
+        include-confused-reaction: true
+
+        # See https://bit.ly/potty-mouth-replacement-strategies
+        replacement-strategy: redacted-rectangle
+
+        # The default list provided by the Action is overzealously eager to the
+        # point of censorship. This reduces the word set down to language that
+        # are typically used in bad faith.
+        custom-profane-words-url: https://raw.githubusercontent.com/${{ github.repository }}/refs/heads/main/.github/no.txt

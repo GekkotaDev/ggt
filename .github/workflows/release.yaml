@@ -1,0 +1,270 @@
+## TODO
+## - [ ] Create AppImage
+name: Release
+on:
+  push:
+    tags:
+      #! This is NOT semantic versioning.
+      #!
+      #! This instead follows the convention used in Linux distributions where
+      #! yy.mm.dd
+      #!
+      #! yy = numerical year
+      #! mm = numerical month
+      #! dd = numerical day
+      #!
+      #! Remember, games aren't developed in the same way that frameworks and
+      #! libraries are. Semantic versioning here is meaningless, we just need a
+      #! way to differentiate builds by date and time.
+      - "[0-9][0-9].[0-9][0-9].[0-9][0-9]"
+      - "[0-9][0-9].[0-9][0-9].[0-9][0-9]-[a-zA-Z]?"
+  workflow_dispatch:
+    inputs:
+      cache_invalidate:
+        type: boolean
+        description: Rebuild cache from scratch.
+        default: false
+
+      test:
+        type: boolean
+        default: true
+
+env:
+  GODOT_VERSION: "4.8"
+  PROJECT_PATH: godot
+  WINEPREFIX: /tmp/.wine
+
+jobs:
+  addons:
+    name: Install Addons
+    ## ggg sync doesn't work on ubuntu-latest.
+    runs-on: windows-latest
+    steps:
+      ## By default, Github Actions doesn't have access to the code base.
+      ##
+      ## By "checking it out" the job can receive a copy of the code base while
+      ## it's busy doing it's thing. This tends to be why it's the first step
+      ## when a job NEEDS the repository (which isn't all the time).
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      ## Have whatever's installed persist through workflow runs so it doesn't
+      ## need to be reinstalled in the future. Cheaper and faster.
+      - name: Cache packages
+        id: cache-packages
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.lock') }}
+          path: |
+            addons
+      - name: Cache ggg
+        id: cache-ggg
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.toml') }}
+          path: |
+            ~\.cargo\bin
+
+      - name: Install Godot Goodie Grabber
+        if: inputs.cache_invalidate || steps.cache-ggg.outputs.cache-hit != 'true'
+        run: irm https://github.com/godotneers/ggg/releases/latest/download/ggg-installer.ps1 | iex
+      - name: Sync dependencies
+        if: inputs.cache_invalidate || steps.cache-packages.outputs.cache-hit != 'true'
+        run: ggg sync --force
+
+      ## Artifacts are Github Actions' mechanism for uploading and downloading
+      ## the results of jobs. Here we upload the installed addons as an artifact
+      ## so that it may be used in building the game.
+      - name: Upload dependencies
+        uses: actions/upload-artifact@v7
+        with:
+          name: dependencies-artifact
+          path: addons/
+
+  build:
+    name: Build Binaries
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.7
+    needs: [addons]  # dependencies-artifacts needed.
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - export: Linux
+            extension: x64
+            godot_export: Linux x86_64
+            output_directory: dist/linux_x64
+            export_name: linux_x64
+
+          - export: Windows
+            extension: exe
+            godot_export: Windows Desktop x86_64
+            output_directory: dist/windows_x64
+            export_name: windows_x64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+
+      - uses: jdx/mise-action@v5
+      - name: Download dependencies
+        uses: actions/download-artifact@v8
+        with:
+          name: dependencies-artifact
+          path: ${{ github.workspace }}/addons/
+
+      - name: Restore Godot editor cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.PROJECT_PATH }}/.godot/
+          key: godot-editor-${{ env.GODOT_VERSION }}-${{ hashFiles(format('{0}/**/*.tscn', env.PROJECT_PATH), format('{0}/**/*.gd', env.PROJECT_PATH), format('{0}/**/*.import', env.PROJECT_PATH)) }}
+          restore-keys: |
+            godot-editor-${{ env.GODOT_VERSION }}-
+
+      - name: Restore Godot export templates
+        uses: actions/cache@v6
+        with:
+          path: ~/.local/share/godot/export_templates/
+          key: godot-templates-${{ env.GODOT_VERSION }}
+          restore-keys: |
+            godot-templates-
+
+      ## LFS = Large File Storage
+      ##
+      ## For assets. They tend to be large.
+      - name: Ensure LFS objects are present
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git lfs install --local
+          git lfs pull
+
+      - name: Setup export template paths
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot || true
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono \
+             ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono || true
+
+      - name: Import project assets
+        run: |
+          godot --headless --import || true
+
+      # - name: Configure Godot Editor Settings for Headless Mode
+      #   run: |
+      #     mkdir -p ~/.config/godot
+      #     cat <<EOF > ~/.config/godot/editor_settings-4.tres
+      #     [gd_resource type="EditorSettings" format=3]
+
+      #     [resource]
+      #     filesystem/import/blender/blender_path = "~/.local/blender/blender"
+      #     filesystem/import/blender/blender3_path = "~/.local/blender/blender"
+      #     EOF
+
+      - uses: godot-gdunit-labs/gdUnit4-action@v1
+        if: inputs.test
+        with:
+          godot-version: 4.7
+          godot-net: true
+          godot-force-mono: true
+          paths: |
+              res://tests
+          timeout: 5
+          version: installed
+
+      - name: Export build
+        run: |
+          mkdir -v -p ${{ matrix.output_directory }}
+          EXPORT_DIR="$(readlink -f build)"
+          godot --headless --verbose --export-release "${{ matrix.godot_export }}" \
+            "$EXPORT_DIR/${{ matrix.export_name }}/${{ github.event.repository.name }}.${{ matrix.extension }}"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.export_name }}
+          path: ${{ matrix.output_directory }}
+
+  release:
+    name: Release Distributables
+    runs-on: ubuntu-latest
+    needs: [build]
+    permissions:
+      contents: write
+
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%d-%m')"
+      - name: Get current time
+        id: time
+        run: echo "::set-output name=time::$(date + '%H:%M:%S')"
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get branch name
+        id: get_branch
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+
+      - name: Download Linux Artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: linux_x64
+      
+      - name: Download Windows Artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: windows_x64
+
+      - name: Build Changelog
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.date.outputs.date }}.${{ github.run_id }}
+          release_name: Build ${{ steps.date.outputs.date }}.${{ github.run_id }}
+          body: |
+              Metadata        | Value 
+              ----------------|---------------------------------------------------------------
+              Build Timestamp | ${{ steps.date.outputs.date }} ${{ steps.date.outputs.time }} 
+
+              ${{ steps.build_changelog.outputs.changelog }}
+          draft: true
+          prerelease: true
+    
+      - name: Upload Linux Release Assets
+        id: upload-linux-x64-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: linux_x64.zip
+            asset_name: ${{ github.event.repository.name }}-linux_x64.zip
+            asset_content_type: application/zip
+      
+      - name: Upload Windows Release Assets
+        id: upload-windows-x64-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: windows_x64.zip
+            asset_name: ${{ github.event.repository.name }}-windows_x64.zip
+            asset_content_type: application/zip

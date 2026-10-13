@@ -1,0 +1,38 @@
+# Ignore all files that aren't either kebab-case or snake_case
+**/[A-Z]*
+**/* *
+
+# Ignore all files that have the .tmp.* extension
+**/*.tmp.*
+
+
+#? Godot
+# Godot 4.2+ specific ignores
+~*.dll
+
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+*.tmp
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+#? GDUnit4
+reports
+
+#? Godot Goodie Grabber
+.ggg.state
+.ggg-install-*
+addons/*
+!addons/lib.*

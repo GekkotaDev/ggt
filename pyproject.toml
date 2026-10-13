@@ -1,19 +1,10 @@
 [project]
-name = "ggt"
+name = "pytools"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "typer>=0.26.7",
-]
+requires-python = ">=3.15"
+dependencies = []
 
 [dependency-groups]
 dev = [
-    "copier>=9.10.2",
-    "mkdocs-material>=9.6.22",
-    "mkdocs-rss-plugin>=1.17.4",
-    "inquirer>=3.4.1",
-    "rich>=14.1.0",
-    "ruff>=0.13.0",
+    "zensical>=0.0.64",
 ]
