@@ -1,0 +1,178 @@
+name: Lint Pull Requests
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  GODOT_VERSION: "4.8"
+  PROJECT_PATH: godot
+  WINEPREFIX: /tmp/.wine
+
+jobs:
+  ai:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wagoid/commitlint-github-action@v6
+
+      # Don't bother with pull requests that were blatantly AI generated, these
+      # should be treated as spam as with any other denial of service attack.
+      #
+      # Go pad out commits or whatever motive elsewhere.
+      - name: "Undisclosed AI: Low Confidence"
+        uses: chaoss/disclosure/action@main
+        with:
+          label: "possibly-ai"
+          min-confidence: "low"
+          scan-pr-body: "true"
+      - name: "Undisclosed AI: Medium Confidence"
+        uses: chaoss/disclosure/action@main
+        with:
+          label: "probably-ai"
+          min-confidence: "medium"
+          scan-pr-body: "true"
+      - name: "Undisclosed AI: High Confidence"
+        uses: chaoss/disclosure/action@main
+        with:
+          label: "definitely-ai"
+          min-confidence: "high"
+          scan-pr-body: "true"
+
+      - name: Reject AI "Contribution"
+        if: contains(github.event.pull_request.labels.*.name, 'definitely-ai')
+        run: exit 1
+
+  dependencies:
+    name: Install Dependencies
+    ## ggg sync doesn't work on ubuntu-latest.
+    runs-on: windows-latest
+    steps:
+      ## By default, Github Actions doesn't have access to the code base.
+      ##
+      ## By "checking it out" the job can receive a copy of the code base while
+      ## it's busy doing it's thing. This tends to be why it's the first step
+      ## when a job NEEDS the repository (which isn't all the time).
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      ## Have whatever's installed persist through workflow runs so it doesn't
+      ## need to be reinstalled in the future. Cheaper and faster.
+      - name: Cache packages
+        id: cache-packages
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.lock') }}
+          path: |
+            addons
+      - name: Cache ggg
+        id: cache-ggg
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.toml') }}
+          path: |
+            ~\.cargo\bin
+
+      - name: Install Godot Goodie Grabber
+        if: inputs.cache_invalidate || steps.cache-ggg.outputs.cache-hit != 'true'
+        run: irm https://github.com/godotneers/ggg/releases/latest/download/ggg-installer.ps1 | iex
+      - name: Sync dependencies
+        if: inputs.cache_invalidate || steps.cache-packages.outputs.cache-hit != 'true'
+        run: ggg sync --force
+
+      ## Artifacts are Github Actions' mechanism for uploading and downloading
+      ## the results of jobs. Here we upload the installed addons as an artifact
+      ## so that it may be used in building the game.
+      - name: Upload dependencies
+        uses: actions/upload-artifact@v7
+        with:
+          name: dependencies-artifact
+          path: addons/
+
+  addons:
+    name: Install Addons
+    ## ggg sync doesn't work on ubuntu-latest.
+    runs-on: windows-latest
+    steps:
+      ## By default, Github Actions doesn't have access to the code base.
+      ##
+      ## By "checking it out" the job can receive a copy of the code base while
+      ## it's busy doing it's thing. This tends to be why it's the first step
+      ## when a job NEEDS the repository (which isn't all the time).
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      ## Have whatever's installed persist through workflow runs so it doesn't
+      ## need to be reinstalled in the future. Cheaper and faster.
+      - name: Cache packages
+        id: cache-packages
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.lock') }}
+          path: |
+            addons
+      - name: Cache ggg
+        id: cache-ggg
+        uses: actions/cache@v6
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/ggg.toml') }}
+          path: |
+            ~\.cargo\bin
+
+      - name: Install Godot Goodie Grabber
+        if: inputs.cache_invalidate || steps.cache-ggg.outputs.cache-hit != 'true'
+        run: irm https://github.com/godotneers/ggg/releases/latest/download/ggg-installer.ps1 | iex
+      - name: Sync dependencies
+        if: inputs.cache_invalidate || steps.cache-packages.outputs.cache-hit != 'true'
+        run: ggg sync --force
+
+      ## Artifacts are Github Actions' mechanism for uploading and downloading
+      ## the results of jobs. Here we upload the installed addons as an artifact
+      ## so that it may be used in building the game.
+      - name: Upload dependencies
+        uses: actions/upload-artifact@v7
+        with:
+          name: dependencies-artifact
+          path: addons/
+
+  testing:
+    runs-on: ubuntu-latest
+    needs: [addons]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+
+      - uses: jdx/mise-action@v5
+      
+      - uses: dortort/betterleaks-action@v0.1.0
+        id: betterleaks
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: betterleaks-report
+          path: ${{ steps.betterleaks.outputs.report-path }}
+      
+      - name: Download dependencies
+        uses: actions/download-artifact@v8
+        with:
+          name: dependencies-artifact
+          path: ${{ github.workspace }}/src/addons/
+      - name: Ensure LFS objects are present
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git lfs install --local
+          git lfs pull
+      - uses: godot-gdunit-labs/gdUnit4-action@v1
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          proejct_dir: "./src"
+          paths: 'res://tests'

@@ -1,0 +1,47 @@
+"triage: needs triange":
+- any:
+  - changed-files:
+    - any-glob-to-any-file: "**"
+
+"type: build":
+- any:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "src/ggg.toml"
+      - "src/ggg.lock"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
+      - "pyproject.toml"
+      - "uv.lock"
+
+"type: ci":
+- any:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/**"
+      - ".husky/*"
+      - ".better-commits.jsonc"
+      - ".committierrc.json"
+      - ".gitattributes"
+      - ".gitignore"
+      - ".oxfmtrc.json"
+      - "commitlint.config.js"
+
+"type: documentation":
+- any:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "docs/**"
+      - "AI_POLICY.md"
+      - "ARCHITECTURE.md"
+      - "changelog.config.js"
+      - "CODE_OF_CONDUCT.md"
+      - "LICENSE"
+      - "README.md"
+      - "zensical.toml"
+
+"type: test":
+- any:
+  - changed-files:
+    - any-glob-to-any-file: "src/tests/**"

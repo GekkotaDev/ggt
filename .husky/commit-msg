@@ -1,0 +1,2 @@
+# pnpm -- committier edit $1
+pnpm -- commitlint --edit $1

@@ -1,0 +1,22 @@
+name: Format Check
+
+on:
+  push:
+
+jobs:
+  format:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup GDScript Formatter
+        uses: NicholasBolen/setup-gdscript-formatter@v1.0.0
+        with:
+          version: 0.21.0
+          cache: true
+
+      - name: Verify version
+        run: gdscript-formatter --version
+  

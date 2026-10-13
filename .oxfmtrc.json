@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [],
+
+  "overrides": [
+    {
+      "files": ["**/*.jsonc"],
+      "options": {
+        // Intentionally unresolved in VSCode.
+        // https://github.com/microsoft/vscode/issues/202422
+        "trailingComma": "none"
+      }
+    }
+  ]
+}
