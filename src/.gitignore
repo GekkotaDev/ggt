@@ -5,6 +5,10 @@
 # Ignore all files that have the .tmp.* extension
 **/*.tmp.*
 
+# Ignore compiled executables
+/build
+/dist
+
 
 #? Godot
 # Godot 4.2+ specific ignores
