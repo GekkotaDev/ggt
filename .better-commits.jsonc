@@ -247,6 +247,6 @@
   /* OTHER FIELDS */
   "overrides": {
     // Useful on Windows or for shells with different multiline behavior
-    "shell": "/bin/sh"
+    // "shell": "/sh"
   }
 }

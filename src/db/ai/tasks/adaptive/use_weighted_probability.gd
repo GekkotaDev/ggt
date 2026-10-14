@@ -18,8 +18,22 @@ func iterize_weights():
 	return weights
 
 
+func normalize_weights(weights: Array[float]) -> Array[float]:
+	var offset := 0.0
+
+	for weight in weights:
+		if weight >= 0:
+			continue
+		offset = weight if weight > offset else offset
+
+	return weights.map(
+		func(weight):
+			return weight + absf(offset),
+	)
+
+
 func select_random_index():
-	return rng.rand_weighted(iterize_weights())
+	return rng.rand_weighted(normalize_weights(iterize_weights()))
 
 
 func _enter() -> void:

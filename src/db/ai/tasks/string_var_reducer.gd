@@ -7,7 +7,7 @@ class_name BTStringVarReducer extends BTAction
 func _tick(_delta: float) -> Status:
 	var state: StringName = blackboard.get_var(key)
 
-	if not reductions.has(key):
+	if not reductions.has(state):
 		return FAILURE
 
 	blackboard.set_var(key, reductions[state])

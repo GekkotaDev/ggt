@@ -1,0 +1,46 @@
+# The commit message should ideally abide by the Conventional Commits
+# specification.
+# https://www.conventionalcommits.org/en/v1.0.0/
+
+<type>([scope]): <subject>
+
+# [body]
+
+# Closes: #n
+# Deprecated: 
+# Breaking Change:
+
+# Commit Types (required, select one)
+# 
+# build: Changes that affect the build system or external dependencies
+# ci: Changes to CI configuration files and scripts
+# chore: Other (minor) changes that do not modify /src
+# feat: New feature
+# fix: Bug fix
+# docs: Documentation only changes
+# perf: Code change that improves performance
+# refactor: A code change that neither fixes a bug nor adds a feature
+# test: Correct existing specifications or otherwise define them
+
+# Scope (optional)
+# Generally you should reference which feature in `/src/cases` are the set of
+# changes you're committing is located.
+
+# Subject (required)
+# Concise explanation of change to commit.
+
+# Body (optional)
+# A more detailed explanation of what the changes.
+#
+# Don't explain *how* it's changed, it does not add any useful information that
+# isn't already explained by the changes you're committing.
+#
+# Focus on *what* has changed and *why* they've been changed.
+
+# Footer (optional)
+# Additional context
+
+# Additional Information:
+#
+# When committing a breaking change, add an exclamation mark ! just before the
+# colon :
