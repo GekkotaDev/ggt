@@ -1,0 +1,23 @@
+##* (Three-dimensional) 3D specific addons
+##*
+##* Copy and paste the entires to the main ggg.toml
+
+[[dependency]]
+name = "csg_blockout"
+url = "https://github.com/qwqzhanqwq/Godot-CSG-Blockout/releases/download/v3.0.0/csg_blockout-3.0.0.zip"
+sha = "12241fb6af07370c58d603c70b7c0e44a47616854f4ed1e347e82d79bd919d30"
+map = [{ from = "addons/csg_blockout" }]
+
+[[dependency]]
+name = "rich_text_3d"
+url = "https://github.com/mszylkowski/rich-text-3d-godot"
+rev = "ac618d0b3989fd9797f1ac653c2a899b2fcd0d45"
+map = [{ from = "addons/rich_text_3d" }]
+
+[[dependency]]
+name = "road-generator"
+url = "https://github.com/TheDuckCow/godot-road-generator/archive/refs/tags/0.9.5.zip"
+map = [
+    { from = "godot-road-generator-0.9.5/addons/road-generator", to = "addons/road-generator" },
+    { from = "godot-road-generator-0.9.5/road_demos", to = "examples/road-generator" },
+]

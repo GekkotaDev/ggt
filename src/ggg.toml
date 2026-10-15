@@ -9,252 +9,232 @@ force_overwrite = ["**/*.import", "**/*.uid"]
 name = "aspect_ratio_resize_container"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/aspect_ratio_resize_container-3.4.0/aspect_ratio_resize_container-3_4_0.zip"
 sha256 = "980c0300e334288a192046ea9445658f7cec1658356a9869e696429a159aa145"
-
-[[dependency.map]]
-from = "addons/aspect_ratio_resize_container"
+map = [{ from = "addons/aspect_ratio_resize_container" }]
 
 [[dependency]]
 name = "at-icons"
 url = "https://github.com/Voxybuns/at-icons/releases/download/v1.5.0/at-icons_v1.5.0.zip"
-
-[[dependency.map]]
-from = "addons/at-icons"
-to = "addons/at-icons"
+map = [{ from = "addons/at-icons", to = "addons/at-icons" }]
 
 [[dependency]]
 name = "controller_icons"
 url = "https://github.com/rsubtil/controller_icons/releases/download/v3.1.8/ControllerIcons-v3.1.8.zip"
-
-[[dependency.map]]
-from = "controller_icons-master/addons/controller_icons"
-to = "addons/controller_icons"
-
-[[dependency.map]]
-from = "controller_icons-master/demo"
-to = "examples/controller_icons"
+map = [
+    { from = "controller_icons-master/addons/controller_icons", to = "addons/controller_icons" },
+    { from = "controller_icons-master/demo", to = "examples/controller_icons" },
+]
 
 [[dependency]]
 name = "custom_theme_overrides"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/custom_theme_overrides-1.2.0/custom_theme_overrides-1_2_0.zip"
-
-[[dependency.map]]
-from = "addons/custom_theme_overrides"
+map = [{ from = "addons/custom_theme_overrides" }]
 
 [[dependency]]
 name = "debug_menu"
 url = "https://github.com/godot-extended-libraries/godot-debug-menu/archive/refs/tags/v1.2.0.zip"
+map = [
+    { from = "godot-debug-menu-1.2.0/addons/debug_menu", to = "addons/debug_menu" },
+]
 
-[[dependency.map]]
-from = "godot-debug-menu-1.2.0/addons/debug_menu"
-to = "addons/debug_menu"
+# [[dependency]]
+# name = "delta_rollback"
+# url = "https://gitlab.com/BimDav/delta-rollback/-/archive/804e9869c88c76e88a5e7962a01c367b459efe5d.zip"
+# sha = "804e9869c88c76e88a5e7962a01c367b459efe5d"
+# map = [
+#     { from = "delta-rollback-804e9869c88c76e88a5e7962a01c367b459efe5d/addons/delta_rollback", to = "addons/delta_rollback" },
+# ]
 
 [[dependency]]
 name = "dialogue_manager"
 url = "https://github.com/nathanhoad/godot_dialogue_manager/archive/refs/tags/v4.0.3.zip"
-
-[[dependency.map]]
-from = "godot_dialogue_manager-4.0.3/addons/dialogue_manager"
-to = "addons/dialogue_manager"
+map = [
+    { from = "godot_dialogue_manager-4.0.3/addons/dialogue_manager", to = "addons/dialogue_manager" },
+]
 
 [[dependency]]
 name = "expose_them_properties"
 url = "https://github.com/Xesa/expose-them-properties/archive/refs/tags/v0.2.1.zip"
-
-[[dependency.map]]
-from = "expose-them-properties-0.2.1/addons/xesa"
-to = "addons/xesa"
+map = [
+    { from = "expose-them-properties-0.2.1/addons/xesa", to = "addons/xesa" },
+]
 
 [[dependency]]
 name = "gdUnit4"
 url = "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip"
-
-[[dependency.map]]
-from = "gdUnit4-6.0.0/addons/gdUnit4"
-to = "addons/gdUnit4"
+map = [{ from = "gdUnit4-6.0.0/addons/gdUnit4", to = "addons/gdUnit4" }]
 
 [[dependency]]
 name = "hide_private_properties"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/hide_private_properties-1.4.0/hide_private_properties-1_4_0.zip"
-
-[[dependency.map]]
-from = "addons/hide_private_properties"
+map = [{ from = "addons/hide_private_properties" }]
 
 [[dependency]]
 name = "inspector_tabs"
 url = "https://github.com/PiCode9560/Godot-Inspector-Tabs/archive/refs/tags/v0.10-stable.zip"
-
-[[dependency.map]]
-from = "Godot-Inspector-Tabs-0.10-stable/addons/inspector_tabs"
-to = "addons/inspector_tabs"
+map = [
+    { from = "Godot-Inspector-Tabs-0.10-stable/addons/inspector_tabs", to = "addons/inspector_tabs" },
+]
 
 [[dependency]]
 name = "instance-dock"
 asset_id = 1421
 
 [[dependency]]
+name = "gloot"
+url = "https://github.com/peter-kish/gloot/archive/refs/tags/v3.0.2.zip"
+map = [{ from = "gloot-3.0.2/addons/gloot", to = "addons/gloot" }]
+
+[[dependency]]
 name = "guide"
 url = "https://github.com/godotneers/G.U.I.D.E/archive/refs/tags/v0.14.0.zip"
-
-[[dependency.map]]
-from = "G.U.I.D.E-0.14.0/addons/guide"
-to = "addons/guide"
-
-[[dependency.map]]
-from = "G.U.I.D.E-0.14.0/guide_examples"
-to = "examples/guide"
+map = [
+    { from = "G.U.I.D.E-0.14.0/addons/guide", to = "addons/guide" },
+    { from = "G.U.I.D.E-0.14.0/guide_examples", to = "examples/guide" },
+]
 
 [[dependency]]
 name = "licenses"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/licenses-1.11.0/licenses-1_11_0.zip"
-
-[[dependency.map]]
-from = "addons/licenses"
+map = [{ from = "addons/licenses" }]
 
 [[dependency]]
 name = "limboai"
 url = "https://github.com/limbonaut/limboai/releases/download/v1.8.1/limboai+v1.8.1.gdextension-4.6.zip"
-
-[[dependency.map]]
-from = "addons/limboai"
-to = "addons/limboai"
-
-[[dependency.map]]
-from = "demo"
-to = "examples/limboai"
+map = [
+    { from = "addons/limboai", to = "addons/limboai" },
+    { from = "demo", to = "examples/limboai" },
+]
 
 [[dependency]]
 name = "log"
 url = "https://github.com/russmatney/log.gd/archive/refs/tags/v0.2.2.zip"
-
-[[dependency.map]]
-from = "log.gd-0.2.2/addons/log"
-to = "addons/log"
-
-[[dependency.map]]
-from = "log.gd-0.2.2/addons/reload_current_scene"
-to = "addons/reload_current_scene"
+map = [
+    { from = "log.gd-0.2.2/addons/log", to = "addons/log" },
+    { from = "log.gd-0.2.2/addons/reload_current_scene", to = "addons/reload_current_scene" },
+]
 
 [[dependency]]
 name = "milestone"
 url = "https://github.com/jelolul/milestone/archive/refs/tags/v1.1.1.beta.zip"
+map = [
+    { from = "milestone-1.1.1.beta/addons/milestone", to = "addons/milestone" },
+]
 
-[[dependency.map]]
-from = "milestone-1.1.1.beta/addons/milestone"
-to = "addons/milestone"
+# [[dependency]]
+# name = "netfox"
+# url = "https://github.com/foxssake/netfox/releases/download/v1.35.3/netfox.extras.v1.35.3.zip"
+# sha = "4179ac82d607ec907db5cac710ad837ae08a08440e15a509b570bb50be75f71e"
+# map = [
+#     { from = "netfox.extras.v1.35.3/addons/netfox", to = "addons/netfox" },
+#     { from = "netfox.extras.v1.35.3/addons/netfox.internals", to = "addons/netfox.internals" },
+#     { from = "netfox.extras.v1.35.3/addons/netfox.extras", to = "addons/netfox.extras" },
+# ]
+
+# [[dependency]]
+# name = "netfox.noray"
+# url = "https://github.com/foxssake/netfox/releases/download/v1.35.3/netfox.noray.v1.35.3.zip"
+# sha = "bc116730febcc1f00075f93edb5c238f8bb9fbab5b4f54c3841ab8f0e248da66"
+# map = [
+#     { from = "netfox.noray.v1.35.3/addons/netfox.noray", to = "addons/netfox.noray" },
+# ]
 
 [[dependency]]
 name = "panku_console"
 url = "https://github.com/Ark2000/PankuConsole/archive/refs/tags/v1.7.9.zip"
-
-[[dependency.map]]
-from = "PankuConsole-1.7.9/addons/panku_console"
-to = "addons/panku_console"
+map = [
+    { from = "PankuConsole-1.7.9/addons/panku_console", to = "addons/panku_console" },
+]
 
 [[dependency]]
 name = "promise"
 url = "https://github.com/TheWalruzz/godot-promise/releases/download/2.0.1/GdPromise-2.0.1.zip"
-
-[[dependency.map]]
-from = "addons/promise"
+map = [{ from = "addons/promise" }]
 
 [[dependency]]
 name = "remove_orphan_uid"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/latest/remove_orphan_uid-1_1_0.zip"
-
-[[dependency.map]]
-from = "addons/kenyoni/remove_orphan_uid"
+map = [{ from = "addons/kenyoni/remove_orphan_uid" }]
 
 [[dependency]]
 name = "runtime_debug_tools"
 url = "https://github.com/bbbscarter/GodotRuntimeDebugTools/archive/refs/tags/v1.1.1.zip"
-
-[[dependency.map]]
-from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools"
-to = "addons/runtime_debug_tools"
-
-[[dependency.map]]
-from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools/examples"
-to = "examples/runtime_debug_tools"
+map = [
+    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools", to = "addons/runtime_debug_tools" },
+    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools/examples", to = "examples/runtime_debug_tools" },
+]
 
 [[dependency]]
 name = "spark"
 url = "https://github.com/CosmoMyzrailGorynych/spark/archive/refs/heads/main.zip"
-
-[[dependency.map]]
-from = "spark-main"
-to = "addons/spark"
+map = [{ from = "spark-main", to = "addons/spark" }]
 
 [[dependency]]
 name = "quest_system"
 url = "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.2.4_4.zip"
-
-[[dependency.map]]
-from = "quest-system-2.0.2.4_4/addons/quest_system"
-to = "addons/quest_system"
+map = [
+    { from = "quest-system-2.0.2.4_4/addons/quest_system", to = "addons/quest_system" },
+]
 
 [[dependency]]
 name = "quick_layout_changer"
 git = "https://github.com/mathrick/godot-quick-layout-changer.git"
 rev = "be6cd9fd9865a27528541e383f6d3254e2e77d64"
-
-[[dependency.map]]
-from = "addons/quick_layout_changer"
+map = [{ from = "addons/quick_layout_changer" }]
 
 [[dependency]]
 name = "scene_manager"
 url = "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.2.0.zip"
-
-[[dependency.map]]
-from = "Scene-Manager-1.2.0/addons/scene_manager"
-to = "addons/scene_manager"
+map = [
+    { from = "Scene-Manager-1.2.0/addons/scene_manager", to = "addons/scene_manager" },
+]
 
 [[dependency]]
 name = "shaker"
 url = "https://github.com/Eneskp3441/Shaker/archive/refs/tags/v1.0.7.zip"
-
-[[dependency.map]]
-from = "Shaker-1.0.7/addons/shaker"
-to = "addons/shaker"
+map = [{ from = "Shaker-1.0.7/addons/shaker", to = "addons/shaker" }]
 
 [[dependency]]
 name = "signal_lens"
 url = "https://github.com/yannlemos/Signal-Lens/releases/download/v1.4.1/signal_lens.zip"
-
-[[dependency.map]]
-from = "signal_lens"
-to = "addons/signal_lens"
+map = [{ from = "signal_lens", to = "addons/signal_lens" }]
 
 [[dependency]]
 name = "SmoothScroll"
 url = "https://github.com/SpyrexDE/SmoothScroll/archive/refs/tags/godot4-v1.4.0.zip"
-
-[[dependency.map]]
-from = "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll"
-to = "addons/SmoothScroll"
+map = [
+    { from = "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll", to = "addons/SmoothScroll" },
+]
 
 [[dependency]]
 name = "sound_manager"
 url = "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip"
-
-[[dependency.map]]
-from = "godot_sound_manager-2.6.2/addons/sound_manager"
-to = "addons/sound_manager"
+map = [
+    { from = "godot_sound_manager-2.6.2/addons/sound_manager", to = "addons/sound_manager" },
+]
 
 [[dependency]]
 name = "spanning_table"
 url = "https://github.com/Magodra/SpanningTableContainer/archive/refs/tags/v1.1.0.zip"
+map = [
+    { from = "SpanningTableContainer-1.1.0/addons/spanning_table", to = "addons/spanning_table" },
+]
 
-[[dependency.map]]
-from = "SpanningTableContainer-1.1.0/addons/spanning_table"
-to = "addons/spanning_table"
+[[dependency]]
+name = "TweenFX"
+url = "https://github.com/EvilBunnyMan/TweenFX"
+rev = "392f24450ce6da4748a0e1340675afd6de6c3742"
+map = [{ from = "addons/TweenFX" }]
+
+[[dependency]]
+name = "TweenSuite"
+url = "https://github.com/KoBeWi/Godot-Tween-Suite"
+rev = "a60fc246ae112e46e46876ccdf663d8231e31ff3"
+map = [{ from = "addons/TweenSuite" }]
 
 [[dependency]]
 name = "yard"
 url = "https://github.com/elliotfontaine/yard-godot/releases/download/v1.2.0/yard-godot.zip"
-
-[[dependency.map]]
-from = "addons/yard"
-to = "addons/yard"
+map = [{ from = "addons/yard", to = "addons/yard" }]
 
 [[dependency]]
 name = "wcsaferesourceformat"

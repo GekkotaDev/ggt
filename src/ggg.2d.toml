@@ -1,0 +1,15 @@
+##* (Two-dimensional) 2D specific addons
+##*
+##* Copy and paste the entires to the main ggg.toml
+
+[[dependency]]
+name = "lit"
+url = "https://github.com/shawndeprey/lit"
+rev = "4142b0398a26a19af7ef055e637ad426104290cc"
+map = [{ from = "addons/lit" }]
+
+[[dependency]]
+name = "rmsmartshape"
+url = "https://github.com/SirRamEsq/SmartShape2D/releases/download/3.3.2/SmartShape2D-3.3.2.zip"
+sha = "3c50f6485253ea8ecb068b73c3d3c6c580b8e614316f7ef4237cc7d44ec26efd"
+map = [{ from = "addons/rmsmartshape" }]
