@@ -1,5 +1,5 @@
 # Ignore all files that aren't either kebab-case or snake_case
-**/[A-Z]*
+**/*[A-Z]?*
 **/* *
 
 # Ignore all files that have the .tmp.* extension
