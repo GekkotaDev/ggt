@@ -26,7 +26,16 @@ ggg sync
 
 ```nu
 $env.HUSKY = 1
-pnpm better-commits
+
+let isWindows = (sys host).name | str downcase | $in == "windows"
+
+if ($isWindows) {
+    print "Dry run only on Windows";
+    pnpm better-commits --dry-run
+} else {
+    pnpm better-commits
+}
+
 ```
 
 ## dev

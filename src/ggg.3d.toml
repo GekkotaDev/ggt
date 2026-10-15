@@ -9,8 +9,16 @@ sha = "12241fb6af07370c58d603c70b7c0e44a47616854f4ed1e347e82d79bd919d30"
 map = [{ from = "addons/csg_blockout" }]
 
 [[dependency]]
+name = "debug_draw_3d"
+url = "https://github.com/DmitriySalnikov/godot_debug_draw_3d/releases/download/1.7.3/debug-draw-3d_1.7.3.zip"
+map = [
+    { from = "debug_draw_3d-1.7.3/addons/debug_draw_3d", to = "addons/debug_draw_3d" },
+]
+sha256 = "e16c7e1bd7f4c30d8e503ce424caef5b9e2fd5f44094cf00be66c334aff54c70"
+
+[[dependency]]
 name = "rich_text_3d"
-url = "https://github.com/mszylkowski/rich-text-3d-godot"
+git = "https://github.com/mszylkowski/rich-text-3d-godot"
 rev = "ac618d0b3989fd9797f1ac653c2a899b2fcd0d45"
 map = [{ from = "addons/rich_text_3d" }]
 

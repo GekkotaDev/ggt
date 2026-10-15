@@ -221,13 +221,13 @@ map = [
 
 [[dependency]]
 name = "TweenFX"
-url = "https://github.com/EvilBunnyMan/TweenFX"
+git = "https://github.com/EvilBunnyMan/TweenFX"
 rev = "392f24450ce6da4748a0e1340675afd6de6c3742"
 map = [{ from = "addons/TweenFX" }]
 
 [[dependency]]
 name = "TweenSuite"
-url = "https://github.com/KoBeWi/Godot-Tween-Suite"
+git = "https://github.com/KoBeWi/Godot-Tween-Suite"
 rev = "a60fc246ae112e46e46876ccdf663d8231e31ff3"
 map = [{ from = "addons/TweenSuite" }]
 

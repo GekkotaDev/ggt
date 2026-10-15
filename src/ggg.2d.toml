@@ -4,7 +4,7 @@
 
 [[dependency]]
 name = "lit"
-url = "https://github.com/shawndeprey/lit"
+git = "https://github.com/shawndeprey/lit"
 rev = "4142b0398a26a19af7ef055e637ad426104290cc"
 map = [{ from = "addons/lit" }]
 
