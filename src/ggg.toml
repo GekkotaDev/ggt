@@ -64,6 +64,18 @@ url = "https://github.com/MikeSchulze/gdUnit4/archive/refs/tags/v6.0.0.zip"
 map = [{ from = "gdUnit4-6.0.0/addons/gdUnit4", to = "addons/gdUnit4" }]
 
 [[dependency]]
+name = "goactions"
+url = "https://github.com/wokidoo/GoActions/archive/refs/tags/v1.1.zip"
+map = [{ from = "GoActions-1.1/addons/goactions", to = "addons/goactions" }]
+
+[[dependency]]
+name = "godot-prototype-texture"
+url = "https://github.com/PiCode9560/Godot-Prototype-Texture/archive/refs/tags/v1.2.0.zip"
+map = [
+    { from = "Godot-Prototype-Texture-1.2.0/addons/godot-prototype-texture", to = "addons/godot-prototype-texture" }
+]
+
+[[dependency]]
 name = "hide_private_properties"
 url = "https://github.com/kenyoni-software/godot-addons/releases/download/hide_private_properties-1.4.0/hide_private_properties-1_4_0.zip"
 map = [{ from = "addons/hide_private_properties" }]
@@ -182,10 +194,11 @@ rev = "be6cd9fd9865a27528541e383f6d3254e2e77d64"
 map = [{ from = "addons/quick_layout_changer" }]
 
 [[dependency]]
-name = "scene_manager"
-url = "https://github.com/glass-brick/Scene-Manager/archive/refs/tags/v1.2.0.zip"
+name = "scenic"
+url = "https://github.com/flown-dev-1/Scenic/releases/download/v1.0.0/scenic_v1.0.0.zip"
+sha = "c6c8b785a7ef865f5d6eaf9dbb149fc3228a7798e24bd2531227a41823e6ad29"
 map = [
-    { from = "Scene-Manager-1.2.0/addons/scene_manager", to = "addons/scene_manager" },
+    { from = "assets/scenic", to = "addons/scenic" },
 ]
 
 [[dependency]]
