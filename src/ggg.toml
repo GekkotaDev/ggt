@@ -20,8 +20,8 @@ map = [{ from = "addons/at-icons", to = "addons/at-icons" }]
 name = "controller_icons"
 url = "https://github.com/rsubtil/controller_icons/releases/download/v3.1.8/ControllerIcons-v3.1.8.zip"
 map = [
-    { from = "controller_icons-master/addons/controller_icons", to = "addons/controller_icons" },
-    { from = "controller_icons-master/demo", to = "examples/controller_icons" },
+	{ from = "controller_icons-master/addons/controller_icons", to = "addons/controller_icons" },
+	{ from = "controller_icons-master/demo", to = "examples/controller_icons" },
 ]
 
 [[dependency]]
@@ -33,7 +33,7 @@ map = [{ from = "addons/custom_theme_overrides" }]
 name = "debug_menu"
 url = "https://github.com/godot-extended-libraries/godot-debug-menu/archive/refs/tags/v1.2.0.zip"
 map = [
-    { from = "godot-debug-menu-1.2.0/addons/debug_menu", to = "addons/debug_menu" },
+	{ from = "godot-debug-menu-1.2.0/addons/debug_menu", to = "addons/debug_menu" },
 ]
 
 # [[dependency]]
@@ -48,14 +48,14 @@ map = [
 name = "dialogue_manager"
 url = "https://github.com/nathanhoad/godot_dialogue_manager/archive/refs/tags/v4.0.3.zip"
 map = [
-    { from = "godot_dialogue_manager-4.0.3/addons/dialogue_manager", to = "addons/dialogue_manager" },
+	{ from = "godot_dialogue_manager-4.0.3/addons/dialogue_manager", to = "addons/dialogue_manager" },
 ]
 
 [[dependency]]
 name = "expose_them_properties"
 url = "https://github.com/Xesa/expose-them-properties/archive/refs/tags/v0.2.1.zip"
 map = [
-    { from = "expose-them-properties-0.2.1/addons/xesa", to = "addons/xesa" },
+	{ from = "expose-them-properties-0.2.1/addons/xesa", to = "addons/xesa" },
 ]
 
 [[dependency]]
@@ -72,7 +72,7 @@ map = [{ from = "GoActions-1.1/addons/goactions", to = "addons/goactions" }]
 name = "godot-prototype-texture"
 url = "https://github.com/PiCode9560/Godot-Prototype-Texture/archive/refs/tags/v1.2.0.zip"
 map = [
-    { from = "Godot-Prototype-Texture-1.2.0/addons/godot-prototype-texture", to = "addons/godot-prototype-texture" }
+	{ from = "Godot-Prototype-Texture-1.2.0/addons/godot-prototype-texture", to = "addons/godot-prototype-texture" }
 ]
 
 [[dependency]]
@@ -84,7 +84,7 @@ map = [{ from = "addons/hide_private_properties" }]
 name = "inspector_tabs"
 url = "https://github.com/PiCode9560/Godot-Inspector-Tabs/archive/refs/tags/v0.10-stable.zip"
 map = [
-    { from = "Godot-Inspector-Tabs-0.10-stable/addons/inspector_tabs", to = "addons/inspector_tabs" },
+	{ from = "Godot-Inspector-Tabs-0.10-stable/addons/inspector_tabs", to = "addons/inspector_tabs" },
 ]
 
 [[dependency]]
@@ -100,8 +100,8 @@ map = [{ from = "gloot-3.0.2/addons/gloot", to = "addons/gloot" }]
 name = "guide"
 url = "https://github.com/godotneers/G.U.I.D.E/archive/refs/tags/v0.14.0.zip"
 map = [
-    { from = "G.U.I.D.E-0.14.0/addons/guide", to = "addons/guide" },
-    { from = "G.U.I.D.E-0.14.0/guide_examples", to = "examples/guide" },
+	{ from = "G.U.I.D.E-0.14.0/addons/guide", to = "addons/guide" },
+	{ from = "G.U.I.D.E-0.14.0/guide_examples", to = "examples/guide" },
 ]
 
 [[dependency]]
@@ -113,23 +113,23 @@ map = [{ from = "addons/licenses" }]
 name = "limboai"
 url = "https://github.com/limbonaut/limboai/releases/download/v1.8.1/limboai+v1.8.1.gdextension-4.6.zip"
 map = [
-    { from = "addons/limboai", to = "addons/limboai" },
-    { from = "demo", to = "examples/limboai" },
+	{ from = "addons/limboai", to = "addons/limboai" },
+	{ from = "demo", to = "examples/limboai" },
 ]
 
 [[dependency]]
 name = "log"
 url = "https://github.com/russmatney/log.gd/archive/refs/tags/v0.2.2.zip"
 map = [
-    { from = "log.gd-0.2.2/addons/log", to = "addons/log" },
-    { from = "log.gd-0.2.2/addons/reload_current_scene", to = "addons/reload_current_scene" },
+	{ from = "log.gd-0.2.2/addons/log", to = "addons/log" },
+	{ from = "log.gd-0.2.2/addons/reload_current_scene", to = "addons/reload_current_scene" },
 ]
 
 [[dependency]]
 name = "milestone"
 url = "https://github.com/jelolul/milestone/archive/refs/tags/v1.1.1.beta.zip"
 map = [
-    { from = "milestone-1.1.1.beta/addons/milestone", to = "addons/milestone" },
+	{ from = "milestone-1.1.1.beta/addons/milestone", to = "addons/milestone" },
 ]
 
 # [[dependency]]
@@ -154,7 +154,7 @@ map = [
 name = "panku_console"
 url = "https://github.com/Ark2000/PankuConsole/archive/refs/tags/v1.7.9.zip"
 map = [
-    { from = "PankuConsole-1.7.9/addons/panku_console", to = "addons/panku_console" },
+	{ from = "PankuConsole-1.7.9/addons/panku_console", to = "addons/panku_console" },
 ]
 
 [[dependency]]
@@ -171,8 +171,8 @@ map = [{ from = "addons/kenyoni/remove_orphan_uid" }]
 name = "runtime_debug_tools"
 url = "https://github.com/bbbscarter/GodotRuntimeDebugTools/archive/refs/tags/v1.1.1.zip"
 map = [
-    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools", to = "addons/runtime_debug_tools" },
-    { from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools/examples", to = "examples/runtime_debug_tools" },
+	{ from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools", to = "addons/runtime_debug_tools" },
+	{ from = "GodotRuntimeDebugTools-1.1.1/addons/runtime_debug_tools/examples", to = "examples/runtime_debug_tools" },
 ]
 
 [[dependency]]
@@ -184,7 +184,7 @@ map = [{ from = "spark-main", to = "addons/spark" }]
 name = "quest_system"
 url = "https://github.com/shomykohai/quest-system/archive/refs/tags/2.0.2.4_4.zip"
 map = [
-    { from = "quest-system-2.0.2.4_4/addons/quest_system", to = "addons/quest_system" },
+	{ from = "quest-system-2.0.2.4_4/addons/quest_system", to = "addons/quest_system" },
 ]
 
 [[dependency]]
@@ -198,7 +198,7 @@ name = "scenic"
 url = "https://github.com/flown-dev-1/Scenic/releases/download/v1.0.0/scenic_v1.0.0.zip"
 sha = "c6c8b785a7ef865f5d6eaf9dbb149fc3228a7798e24bd2531227a41823e6ad29"
 map = [
-    { from = "assets/scenic", to = "addons/scenic" },
+	{ from = "assets/scenic", to = "addons/scenic" },
 ]
 
 [[dependency]]
@@ -215,21 +215,21 @@ map = [{ from = "signal_lens", to = "addons/signal_lens" }]
 name = "SmoothScroll"
 url = "https://github.com/SpyrexDE/SmoothScroll/archive/refs/tags/godot4-v1.4.0.zip"
 map = [
-    { from = "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll", to = "addons/SmoothScroll" },
+	{ from = "SmoothScroll-godot4-v1.4.0/addons/SmoothScroll", to = "addons/SmoothScroll" },
 ]
 
 [[dependency]]
 name = "sound_manager"
 url = "https://github.com/nathanhoad/godot_sound_manager/archive/refs/tags/v2.6.2.zip"
 map = [
-    { from = "godot_sound_manager-2.6.2/addons/sound_manager", to = "addons/sound_manager" },
+	{ from = "godot_sound_manager-2.6.2/addons/sound_manager", to = "addons/sound_manager" },
 ]
 
 [[dependency]]
 name = "spanning_table"
 url = "https://github.com/Magodra/SpanningTableContainer/archive/refs/tags/v1.1.0.zip"
 map = [
-    { from = "SpanningTableContainer-1.1.0/addons/spanning_table", to = "addons/spanning_table" },
+	{ from = "SpanningTableContainer-1.1.0/addons/spanning_table", to = "addons/spanning_table" },
 ]
 
 [[dependency]]
