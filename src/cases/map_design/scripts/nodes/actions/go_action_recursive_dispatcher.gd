@@ -20,7 +20,8 @@ func _trigger() -> void:
 			continue
 
 		if allowlist.is_empty():
-			return receiver.trigger()
+			receiver.trigger()
+			continue
 
 		if allowlist.any(
 			func(tag: String):
