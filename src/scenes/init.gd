@@ -1,11 +1,11 @@
-extends Control
+extends SceneManager
+
+@export var debug_script: GDScript
+@export var target_id: StringName
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	GlobalSceneManager.queue_remove_scenes()
+	GlobalSceneManager.queue_set_scene(target_id)
+	GlobalSceneManager.apply()
+	debug_script.new()

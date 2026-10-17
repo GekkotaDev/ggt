@@ -2,11 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ypl54uts4ptp" path="res://scenes/init.gd" id="1_wm5da"]
 
-[node name="Init" type="Control" unique_id=1101497425]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Init" type="Node" unique_id=1808947721]
 script = ExtResource("1_wm5da")
+metadata/_custom_type_script = "uid://duewdbbsl6u0s"
