@@ -10,9 +10,9 @@ extends Node2D
 
 var _age: float = 0.0
 
-
 func _process(delta: float) -> void:
 	translate(transform.x * speed * delta)
 	_age += delta
 	if _age >= lifetime:
 		queue_free()
+

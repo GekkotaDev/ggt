@@ -5,8 +5,8 @@
 ## needing to switch contexts.
 extends Node2D
 
-@export var keyboard_and_mouse: GUIDEMappingContext
-@export var controller: GUIDEMappingContext
+@export var keyboard_and_mouse:GUIDEMappingContext
+@export var controller:GUIDEMappingContext
 
 
 func _ready() -> void:

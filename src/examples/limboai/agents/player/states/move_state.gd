@@ -11,6 +11,7 @@
 extends LimboState
 ## Move state.
 
+
 const VERTICAL_FACTOR := 0.8
 
 @export var animation_player: AnimationPlayer

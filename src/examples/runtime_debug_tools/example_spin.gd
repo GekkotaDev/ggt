@@ -5,4 +5,4 @@ extends Node3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	rotate_object_local(axis, deg_to_rad(degrees_per_sec) * delta)
+    rotate_object_local(axis, deg_to_rad(degrees_per_sec) * delta)

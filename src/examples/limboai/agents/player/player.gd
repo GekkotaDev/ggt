@@ -29,10 +29,7 @@ func _ready() -> void:
 	can_dodge = true
 	_init_input_events()
 	_init_state_machine()
-	death.connect(
-		func():
-			remove_from_group(&"player"),
-	)
+	death.connect(func(): remove_from_group(&"player"))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -101,9 +98,6 @@ func set_victorious() -> void:
 func _can_dodge() -> bool:
 	if can_dodge:
 		can_dodge = false
-		get_tree().create_timer(dodge_cooldown).timeout.connect(
-			func():
-				can_dodge = true,
-		)
+		get_tree().create_timer(dodge_cooldown).timeout.connect(func(): can_dodge = true)
 		return true
 	return false

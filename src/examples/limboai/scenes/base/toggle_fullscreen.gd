@@ -8,7 +8,7 @@ func _ready() -> void:
 	get_window().mode = Window.MODE_FULLSCREEN
 	get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-	get_window().content_scale_size = Vector2i(1920, 1080)
+	get_window().content_scale_size = Vector2i(1920,1080)
 
 
 func _toggle_fullscreen() -> void:

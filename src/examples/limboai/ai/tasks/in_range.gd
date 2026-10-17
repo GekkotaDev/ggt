@@ -30,11 +30,8 @@ var _max_distance_squared: float
 
 # Called to generate a display name for the task.
 func _generate_name() -> String:
-	return "InRange (%d, %d) of %s" % [
-		distance_min,
-		distance_max,
-		LimboUtility.decorate_var(target_var),
-	]
+	return "InRange (%d, %d) of %s" % [distance_min, distance_max,
+		LimboUtility.decorate_var(target_var)]
 
 
 # Called to initialize the task.

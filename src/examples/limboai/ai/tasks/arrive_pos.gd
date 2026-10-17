@@ -31,7 +31,7 @@ extends BTAction
 func _generate_name() -> String:
 	return "Arrive  pos: %s%s" % [
 		LimboUtility.decorate_var(target_position_var),
-		"" if avoid_var.is_empty() else "  avoid: " + LimboUtility.decorate_var(avoid_var),
+		"" if avoid_var.is_empty() else "  avoid: " + LimboUtility.decorate_var(avoid_var)
 	]
 
 

@@ -41,7 +41,7 @@ func _enter() -> void:
 	if not is_zero_approx(horizontal_move):
 		agent.face_dir(horizontal_move)
 
-	hitbox.damage = 2 if anim_index == 2 else 1 # deal 2 damage on a third attack in the combo
+	hitbox.damage = 2 if anim_index == 2 else 1  # deal 2 damage on a third attack in the combo
 	animation_player.play(animations[anim_index])
 
 	await animation_player.animation_finished

@@ -3,10 +3,10 @@
 ## which player input we should consume.
 extends Node2D
 
-@export var speed: float = 150
+@export var speed:float = 150
 
-@export var move_action: GUIDEAction
+@export var move_action:GUIDEAction
 
-
-func _process(delta: float) -> void:
+func _process(delta:float) -> void:
 	position += move_action.value_axis_2d.normalized() * speed * delta
+

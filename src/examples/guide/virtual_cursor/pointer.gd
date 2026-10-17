@@ -1,14 +1,13 @@
 extends Area2D
 
-@export var cursor_2d: GUIDEAction
-@export var click: GUIDEAction
+@export var cursor_2d:GUIDEAction
+@export var click:GUIDEAction
 
 
 func _ready() -> void:
 	click.triggered.connect(_click)
 
-
-func _process(_delta: float) -> void:
+func _process(_delta:float) -> void:
 	global_position = cursor_2d.value_axis_2d
 
 

@@ -21,14 +21,11 @@ extends BTAction
 ## How long to perform this task (in seconds).
 @export var duration: float = 0.1
 
-
 # Display a customized name (requires @tool).
 func _generate_name() -> String:
 	return "MoveForward  speed: %s  duration: %ss" % [
 		LimboUtility.decorate_var(speed_var),
-		duration,
-	]
-
+		duration]
 
 # Called each time this task is ticked (aka executed).
 func _tick(_delta: float) -> Status:

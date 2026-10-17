@@ -16,7 +16,6 @@ extends BTAction
 ## Blackboard variable that stores our target (expecting Node2D).
 @export var target_var: StringName = &"target"
 
-
 # Display a customized name (requires @tool).
 func _generate_name() -> String:
 	return "FaceTarget " + LimboUtility.decorate_var(target_var)

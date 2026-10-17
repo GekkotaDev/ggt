@@ -12,55 +12,55 @@
 extends CodeEdit
 
 const RESERVED_WORDS := [
-	# Control flow.
-	"break",
-	"continue",
-	"elif",
-	"else",
-	"for",
-	"if",
-	"match",
-	"pass",
-	"return",
-	"when",
-	"while",
-	# Declarations.
-	"class",
-	"class_name",
-	"const",
-	"enum",
-	"extends",
-	"func",
-	"namespace",
-	"signal",
-	"static",
-	"trait",
-	"var",
-	# Other keywords.
-	"await",
-	"breakpoint",
-	"self",
-	"super",
-	"yield",
-	# Operators.
-	"and",
-	"as",
-	"in",
-	"is",
-	"not",
-	"or",
-	# Special values.
-	"false",
-	"null",
-	"true",
-	# Constants.
-	"INF",
-	"NAN",
-	"PI",
-	"TAU",
-	# Functions.
-	"assert",
-	"preload",
+		# Control flow.
+		"break",
+		"continue",
+		"elif",
+		"else",
+		"for",
+		"if",
+		"match",
+		"pass",
+		"return",
+		"when",
+		"while",
+		# Declarations.
+		"class",
+		"class_name",
+		"const",
+		"enum",
+		"extends",
+		"func",
+		"namespace",
+		"signal",
+		"static",
+		"trait",
+		"var",
+		# Other keywords.
+		"await",
+		"breakpoint",
+		"self",
+		"super",
+		"yield",
+		# Operators.
+		"and",
+		"as",
+		"in",
+		"is",
+		"not",
+		"or",
+		# Special values.
+		"false",
+		"null",
+		"true",
+		# Constants.
+		"INF",
+		"NAN",
+		"PI",
+		"TAU",
+		# Functions.
+		"assert",
+		"preload",
 ]
 
 const TYPE_WORDS := [
@@ -132,10 +132,8 @@ func _ready() -> void:
 func set_source_code(source_code: String) -> void:
 	# Hide license header
 	var idx: int = source_code.find("#*")
-	while idx != -1:
-		source_code = source_code.substr(0, idx) + source_code.substr(
-			source_code.findn("\n", idx) + 1
-		)
+	while idx != - 1:
+		source_code = source_code.substr(0, idx) + source_code.substr(source_code.findn("\n", idx) + 1)
 		idx = source_code.findn("#*", idx)
 
 	text = "" # Workaround

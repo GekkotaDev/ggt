@@ -14,6 +14,7 @@ extends BTCondition
 ## Returns [code]SUCCESS[/code] if the agent is horizontally aligned with the target.
 ## Returns [code]FAILURE[/code] if not aligned or if target is not a valid node instance.
 
+
 @export var target_var: StringName = &"target"
 @export var tolerance: float = 30.0
 

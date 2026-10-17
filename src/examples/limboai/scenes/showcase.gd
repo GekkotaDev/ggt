@@ -35,14 +35,8 @@ func _ready() -> void:
 	code_popup.hide()
 
 	agent_selection.get_popup().id_pressed.connect(_on_agent_selection_id_pressed)
-	previous.pressed.connect(
-		func():
-			_on_agent_selection_id_pressed(selected_tree_index - 1),
-	)
-	next.pressed.connect(
-		func():
-			_on_agent_selection_id_pressed(selected_tree_index + 1),
-	)
+	previous.pressed.connect(func(): _on_agent_selection_id_pressed(selected_tree_index - 1))
+	next.pressed.connect(func(): _on_agent_selection_id_pressed(selected_tree_index + 1))
 
 	_initialize()
 

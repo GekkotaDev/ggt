@@ -60,16 +60,14 @@ func update_facing() -> void:
 	if _frames_since_facing_update > 3:
 		face_dir(velocity.x)
 
-
 ## Face specified direction.
 func face_dir(dir: float) -> void:
 	if dir > 0.0 and root.scale.x < 0.0:
-		root.scale.x = 1.0
+		root.scale.x = 1.0;
 		_frames_since_facing_update = 0
 	if dir < 0.0 and root.scale.x > 0.0:
-		root.scale.x = -1.0
+		root.scale.x = -1.0;
 		_frames_since_facing_update = 0
-
 
 ## Returns 1.0 when agent is facing right.
 ## Returns -1.0 when agent is facing left.
@@ -97,10 +95,7 @@ func summon_minion(p_position: Vector2) -> void:
 	minion.position = p_position
 	minion.play_summoning_effect()
 	summon_count += 1
-	minion.death.connect(
-		func():
-			summon_count -= 1,
-	)
+	minion.death.connect(func(): summon_count -= 1)
 
 
 ## Method is used when this agent is summoned from the dungeons of the castle AaaAaaAAAAAaaAAaaaaaa

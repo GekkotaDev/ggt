@@ -16,10 +16,8 @@ extends BTAction
 # Display a customized name (requires @tool).
 func _generate_name() -> String:
 	return "SelectRandomNearbyPos  range: [%s, %s]  ➜%s" % [
-		range_min,
-		range_max,
-		LimboUtility.decorate_var(position_var),
-	]
+		range_min, range_max,
+		LimboUtility.decorate_var(position_var)]
 
 
 # Called each time this task is ticked (aka executed).

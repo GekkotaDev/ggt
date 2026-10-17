@@ -35,10 +35,7 @@ const WAVES: Array = [
 
 func _ready() -> void:
 	hp_bar.max_value = player.get_health().max_health
-	player.get_health().damaged.connect(
-		func(_a, _b):
-			hp_bar.value = player.get_health().get_current(),
-	)
+	player.get_health().damaged.connect(func(_a,_b): hp_bar.value = player.get_health().get_current())
 	player.death.connect(_on_player_death)
 
 

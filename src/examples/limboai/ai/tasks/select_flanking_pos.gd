@@ -44,8 +44,7 @@ func _generate_name() -> String:
 		range_min,
 		range_max,
 		AgentSide.keys()[flank_side],
-		LimboUtility.decorate_var(position_var),
-	]
+		LimboUtility.decorate_var(position_var)]
 
 
 # Called each time this task is ticked (aka executed).
@@ -54,11 +53,11 @@ func _tick(_delta: float) -> Status:
 	if not is_instance_valid(target):
 		return FAILURE
 
-	var dir: float # 1.0 is right, -1.0 is left (relative to target)
+	var dir: float  # 1.0 is right, -1.0 is left (relative to target)
 	match flank_side:
 		AgentSide.FARTHEST:
 			dir = signf(target.global_position.x - agent.global_position.x)
-		AgentSide.CLOSEST:
+		AgentSide.CLOSEST :
 			dir = -signf(target.global_position.x - agent.global_position.x)
 		AgentSide.BACK:
 			dir = -target.get_facing()

@@ -30,9 +30,7 @@ func _ready() -> void:
 	tween.tween_property(fireball_sprite, ^"rotation", PI * signf(dir), 1.0).as_relative()
 
 	var tween2 := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	tween2.tween_property(fireball_sprite, "position:y", -10.0, 0.5).as_relative().set_ease(
-		Tween.EASE_OUT
-	)
+	tween2.tween_property(fireball_sprite, "position:y", -10.0, 0.5).as_relative().set_ease(Tween.EASE_OUT)
 	tween2.tween_property(fireball_sprite, "position:y", 0.0, 1.0)
 	tween2.tween_callback(_die)
 
