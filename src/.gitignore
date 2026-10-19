@@ -5,6 +5,9 @@
 # Except for Markdown files
 !**/[A-Z]*.md
 
+# And script templates
+!**/script_templates/[A-Z]*
+
 # Ignore all files that have the .tmp.* extension
 **/*.tmp.*
 
