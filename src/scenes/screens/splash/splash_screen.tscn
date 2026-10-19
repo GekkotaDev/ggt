@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://n61jlwwsarlu" path="res://scenes/screens/splash/splash_screen.gd" id="1_87lem"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_87lem"]
-
 [node name="SplashScreen" type="Control" unique_id=2123759551]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,5 +14,11 @@ script = ExtResource("1_87lem")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1642311287]
 
-[node name="BTPlayer" type="BTPlayer" parent="." unique_id=74154527]
-blackboard_plan = SubResource("BlackboardPlan_87lem")
+[node name="BaseColor" type="ColorRect" parent="." unique_id=754458669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
