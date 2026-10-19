@@ -1,7 +1,31 @@
 [gd_scene format=3 uid="uid://cwnj1fnfrjkyr"]
 
 [ext_resource type="Script" uid="uid://ypl54uts4ptp" path="res://scenes/init.gd" id="1_wm5da"]
+[ext_resource type="Script" uid="uid://4u0ap31txany" path="res://addons/scenic/nodes/transitions/fade_transition.gd" id="2_cmtoo"]
+[ext_resource type="Script" uid="uid://y1x7ms1bt3xb" path="res://addons/scenic/resources/scene_info.gd" id="2_hgawr"]
+
+[sub_resource type="Resource" id="Resource_h74cd"]
+script = ExtResource("2_hgawr")
+name = &"screens/splash"
+uid = 4516519536606017648
+_path = "res://scenes/screens/splash/splash_screen.tscn"
 
 [node name="Init" type="Node" unique_id=1808947721]
 script = ExtResource("1_wm5da")
+_scenes = {
+&"screens/splash": SubResource("Resource_h74cd")
+}
 metadata/_custom_type_script = "uid://duewdbbsl6u0s"
+
+[node name="Fade" type="CanvasLayer" parent="." unique_id=1319093592 node_paths=PackedStringArray("_curtain")]
+script = ExtResource("2_cmtoo")
+_curtain = NodePath("ColorRect")
+metadata/_custom_type_script = "uid://4u0ap31txany"
+
+[node name="ColorRect" type="ColorRect" parent="Fade" unique_id=1967441123]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
