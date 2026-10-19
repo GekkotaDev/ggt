@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgc2ku4o180lj"]
+
+[ext_resource type="Script" uid="uid://che4enu7wrksv" path="res://globals/multi_scene_manager.gd" id="1_1hp2e"]
+
+[node name="MultiSceneManager" type="Node" unique_id=2040598731]
+script = ExtResource("1_1hp2e")
