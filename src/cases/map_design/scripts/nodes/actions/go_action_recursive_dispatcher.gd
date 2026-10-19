@@ -1,6 +1,7 @@
 @tool
 class_name GoActionRecursiveDispatcher extends GoAction
 
+@export var global: bool = false
 @export var scope: Node
 
 @export_group("Filtering")
@@ -9,7 +10,7 @@ class_name GoActionRecursiveDispatcher extends GoAction
 
 
 func _trigger() -> void:
-	var root_node := scope if scope else get_parent()
+	var root_node := scope if scope else get_tree().root if global else get_parent()
 	var receivers := root_node.find_children("*", "GoActionReceiver") as Array[GoActionReceiver]
 
 	for receiver in receivers:
