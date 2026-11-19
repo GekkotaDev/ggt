@@ -17,6 +17,10 @@ map = [
 sha256 = "e16c7e1bd7f4c30d8e503ce424caef5b9e2fd5f44094cf00be66c334aff54c70"
 
 [[dependency]]
+name = "proton_scatter"
+asset_id = 1866
+
+[[dependency]]
 name = "rich_text_3d"
 git = "https://github.com/mszylkowski/rich-text-3d-godot"
 rev = "ac618d0b3989fd9797f1ac653c2a899b2fcd0d45"
